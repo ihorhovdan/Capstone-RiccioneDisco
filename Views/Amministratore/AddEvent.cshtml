@@ -1,0 +1,73 @@
+﻿<link rel="stylesheet" href="~/css/amministratore/amministratore.css" asp-append-version="true" />
+
+@model RiccioneDisco.Models.Eventi
+
+@{
+    ViewData["Title"] = "Aggiungi Evento";
+}
+
+<h1 class="text-center mt-4">Aggiungi Evento</h1>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <form asp-action="AddEvent" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Titolo">Titolo</label>
+                    <input asp-for="Titolo" class="form-control" />
+                    <span asp-validation-for="Titolo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Data">Data</label>
+                    <input asp-for="Data" class="form-control" />
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Luogo">Luogo</label>
+                    <select asp-for="Luogo" class="form-control">
+                        <option value="Cocorico">Cocorico</option>
+                        <option value="Villa Delle Rose">Villa Delle Rose</option>
+                        <option value="Peter Pan">Peter Pan</option>
+                        <option value="Altromondo Studios">Altromondo Studios</option>
+                    </select>
+                    <span asp-validation-for="Luogo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Prezzo">Prezzo</label>
+                    <input type="number" asp-for="Prezzo" class="form-control" step="0.01" />
+                    <span asp-validation-for="Prezzo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Immagine">URL Immagine</label>
+                    <input asp-for="Immagine" class="form-control" />
+                    <span asp-validation-for="Immagine" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success mt-3">Aggiungi</button>
+                    <a href="@Url.Action("Amministratore", "Amministratore")" class="btn btn-secondary mt-3 ml-2">Torna Indietro</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

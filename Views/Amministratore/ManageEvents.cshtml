@@ -1,0 +1,149 @@
+﻿<link rel="stylesheet" href="~/css/amministratore/amministratore.css" asp-append-version="true" />
+@model List<RiccioneDisco.Models.Eventi>
+
+
+
+<<div class="container">
+    <h2 class="mt-5 text-center">Gestisci Eventi</h2>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-12 col-md-auto text-center text-md-left">
+            <label for="discoteca" class="label-discoteca">Seleziona la discoteca:</label>
+        </div>
+        <div class="col-12 col-md-auto text-center">
+            <form method="get" asp-controller="Amministratore" asp-action="ManageEvents" class="form-discoteca">
+                <select class="form-control select-discoteca" id="discoteca" name="discoteca" onchange="this.form.submit()">
+                    <option value="">Tutte le discoteche</option>
+                    @if (ViewData["SelectedDiscoteca"]?.ToString() == "Cocorico")
+                    {
+                        <option value="Cocorico" selected>Cocorico</option>
+                    }
+                    else
+                    {
+                        <option value="Cocorico">Cocorico</option>
+                    }
+                    @if (ViewData["SelectedDiscoteca"]?.ToString() == "Peter Pan")
+                    {
+                        <option value="Peter Pan" selected>Peter Pan</option>
+                    }
+                    else
+                    {
+                        <option value="Peter Pan">Peter Pan</option>
+                    }
+                    @if (ViewData["SelectedDiscoteca"]?.ToString() == "Altromondo Studios")
+                    {
+                        <option value="Altromondo Studios" selected>Altromondo Studios</option>
+                    }
+                    else
+                    {
+                        <option value="Altromondo Studios">Altromondo Studios</option>
+                    }
+                    @if (ViewData["SelectedDiscoteca"]?.ToString() == "Villa Delle Rose")
+                    {
+                        <option value="Villa Delle Rose" selected>Villa Delle Rose</option>
+                    }
+                    else
+                    {
+                        <option value="Villa Delle Rose">Villa Delle Rose</option>
+                    }
+                </select>
+            </form>
+        </div>
+        <div class="col-12 col-md-auto mt-3 mt-md-0 text-center">
+            <a href="@Url.Action("Amministratore", "Amministratore")" class="btn btn-secondary">Torna Indietro</a>
+        </div>
+    </div>
+
+
+
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success text-center">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+
+<div class="row justify-content-center mx-5">
+    @foreach (var evento in Model)
+    {
+        <div class="col-lg-2 col-md-2 col-sm-3 mb-4 mx-auto">
+            <div class="event-card">
+                <form asp-controller="Amministratore" asp-action="UpdateEvent" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="IdEvento" value="@evento.IdEvento" />
+
+                    <div class="form-group">
+                        <img src="@evento.Immagine" alt="Immagine dell'evento" style="width: 100%; height: auto;">
+                        <label>URL Immagine</label>
+                        <input type="text" name="Immagine" class="form-control" value="@evento.Immagine" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Titolo</label>
+                        <input type="text" name="Titolo" class="form-control" value="@evento.Titolo" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="text" name="Data" class="form-control" value="@evento.Data" />
+                    </div>
+
+                        <div class="form-group">
+                            <label>Luogo</label>
+                            <select class="form-control" name="Luogo">
+                                @if (evento.Luogo == "Cocorico")
+                                {
+                                    <option value="Cocorico" selected>Cocorico</option>
+                                }
+                                else
+                                {
+                                    <option value="Cocorico">Cocorico</option>
+                                }
+
+                                @if (evento.Luogo == "Villa Delle Rose")
+                                {
+                                    <option value="Villa Delle Rose" selected>Villa Delle Rose</option>
+                                }
+                                else
+                                {
+                                    <option value="Villa Delle Rose">Villa Delle Rose</option>
+                                }
+
+                                @if (evento.Luogo == "Peter Pan")
+                                {
+                                    <option value="Peter Pan" selected>Peter Pan</option>
+                                }
+                                else
+                                {
+                                    <option value="Peter Pan">Peter Pan</option>
+                                }
+
+                                @if (evento.Luogo == "Altromondo Studios")
+                                {
+                                    <option value="Altromondo Studios" selected>Altromondo Studios</option>
+                                }
+                                else
+                                {
+                                    <option value="Altromondo Studios">Altromondo Studios</option>
+                                }
+                            </select>
+                        </div>
+
+
+                    <div class="form-group">
+                        <label>Prezzo</label>
+                        <input type="text" name="Prezzo" class="form-control" value="@evento.Prezzo" />
+                    </div>
+
+                    <div class="text-center mt-2">
+                        <button type="submit" class="btn btn-primary">Aggiorna</button>
+                        <button type="submit" formaction="@Url.Action("DeleteEvent", "Amministratore", new { id = evento.IdEvento })" class="btn btn-danger">Elimina</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    }
+</div>
+

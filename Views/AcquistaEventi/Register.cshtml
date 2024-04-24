@@ -1,0 +1,33 @@
+﻿<link rel="stylesheet" href="~/css/loginRegister/loginRegister.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Register";
+}
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-panel">
+                    <h2 class="mt-5">Registrazione</h2>
+
+                    <form asp-action="Register" method="post" class="form-login btn-registrati">
+                        <div class="mb-3">
+                            <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <input id="cognome" name="cognome" type="text" class="form-control" placeholder="Cognome" required>
+                        </div>
+                        <div class="mb-3">
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn custom-btn">Registrati</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

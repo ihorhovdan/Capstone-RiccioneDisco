@@ -1,0 +1,103 @@
+﻿<link rel="stylesheet" href="~/css/carrello/carrello.css" asp-append-version="true" />
+
+@model List<RiccioneDisco.Models.CarrelloItemViewModel>
+
+@{
+    ViewData["Title"] = "Il tuo Carrello";
+}
+
+
+
+@if (Model.Count == 0)
+{
+
+    <div class="container mt-5 cart-container">
+        <p class="alert alert-info">Il tuo carrello è vuoto.</p>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table" id="cart-table">
+                <thead>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Evento</th>
+                        <th class="text-center">Quantità</th>
+                        <th class="text-center">Prezzo</th>
+                        <th class="text-center">Sub Tot</th>
+
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-item-id="@item.CarrelloItemId" class="items">
+                            <td><img src="@item.ImageUrl" alt="Immagine di @item.TitoloEvento" class="img-fluid" style="width:150px; height:150px;"></td>
+                            <td class="event-title">@item.TitoloEvento</td>
+                            <td data-title="Quantità:">
+                                <select class="form-control select-form-control quantity-selector small-dropdown" data-item-id="@item.CarrelloItemId">
+                                    @for (int i = 1; i <= 10; i++)
+                                    {
+                                        if (item.Quantita == i)
+                                        {
+                                            <option value="@i" selected>@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td data-title="Prezzo:">€@item.Prezzo.ToString("N2")</td>
+                            <td data-title="Sub Tot:">€<span class="subtotal" data-item-id="@item.CarrelloItemId">@((item.Prezzo * item.Quantita).ToString("N2"))</span></td>
+                            <td>
+                                <form method="post" action="@Url.Action("RimuoviDalCarrello", "Carrello", new { itemId = item.CarrelloItemId })" class="button-container">
+                                    <button type="submit" class="custom-btn btn-delete"><i class="bi-trash3-fill"></i></button>
+                                </form>
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-between totale-checkout-wrap">
+            <div class="col-auto totale">
+                <h3>Totale: €<span id="total-price">@Model.Sum(i => i.Prezzo * i.Quantita).ToString("N2")</span></h3>
+            </div>
+            <div class="col-auto">
+                <a class="custom-btn" href="@Url.Action("Checkout", "Carrello")" id="checkout">Procedi al Checkout</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.quantity-selector').forEach(selector => {
+            selector.addEventListener('change', function () {
+                const itemId = this.getAttribute('data-item-id');
+                const newQuantity = parseInt(this.value);
+                const pricePerUnit = parseFloat(document.querySelector(`tr[data-item-id="${itemId}"] td:nth-child(4)`).textContent.replace('€', ''));
+                const newSubtotal = pricePerUnit * newQuantity;
+
+                document.querySelector(`.subtotal[data-item-id="${itemId}"]`).textContent = newSubtotal.toFixed(2);
+
+                // Update total
+                let total = 0;
+                document.querySelectorAll('.subtotal').forEach(sub => {
+                    total += parseFloat(sub.textContent);
+                });
+                document.getElementById('total-price').textContent = total.toFixed(2);
+            });
+        });
+    </script>
+}

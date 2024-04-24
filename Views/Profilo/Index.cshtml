@@ -1,0 +1,91 @@
+﻿@model RiccioneDisco.Models.ProfiloViewModel
+
+<link rel="stylesheet" href="~/css/profilo/profilo.css" asp-append-version="true" />
+
+<div class="container profile-container">
+
+   
+
+
+
+    <img src="/images/profilo.png" alt="Profilo" class="profile-image" />
+    <h2>Ciao @Model.Utente.Nome!</h2>
+    <p id="option">Seleziona un opzione</p>
+
+    <select id="profileOptions" class="form-control mt-3">
+        <option value="">Seleziona un'opzione</option>
+        <option value="Modifica i tuoi dati personali">Modifica i tuoi dati personali</option>
+        <option value="Visualizza Eventi Acquistati">Visualizza Eventi Acquistati</option>
+    </select>
+
+    <!-- Messaggi di successo o di errore -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <!-- Sezione per Mostrare i Dati Personali -->
+    <div id="personalDataSection" style="display:none;">
+        <p><strong>Nome:</strong> @Model.Utente.Nome</p>
+        <p><strong>Cognome:</strong> @Model.Utente.Cognome</p>
+        <p><strong>Email:</strong> @Model.Utente.Email</p>
+        <p><strong>Password:</strong> **********</p>
+        <!-- La password non dovrebbe mai essere mostrata in chiaro per ragioni di sicurezza -->
+        <a href="@Url.Action("Edit", "Profilo")" class="btn custom-btn">Modifica i tuoi dati personali</a>
+    </div>
+
+    
+
+
+    <div id="eventsSection" class="mt-3" style="display:none;">
+        @if (Model.EventiAcquistati != null && Model.EventiAcquistati.Any())
+        {
+            <div class="row">
+                @foreach (var evento in Model.EventiAcquistati)
+                {
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="@evento.Immagine" class="card-img-top" alt="@evento.Titolo">
+                            <div class="card-body d-flex flex-column">
+                                <p class="card-text event-date">@evento.Data</p>
+                                <h5 class="card-title">@evento.Titolo</h5>
+                                <p class="card-text event-luogo"><i class="fas fa-map-marker-alt mx-1"></i>@evento.Luogo</p>
+                                <p class="card-text">€@evento.Prezzo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        }
+        else
+        {
+            <p>Non hai acquistato eventi.</p>
+        }
+    </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#profileOptions').change(function () {
+            var selectedOption = $(this).val();
+            // Gestisci la visibilità della sezione dati personali
+            $('#personalDataSection').toggle(selectedOption === 'Modifica i tuoi dati personali');
+            // Gestisci la visibilità della sezione eventi acquistati
+            $('#eventsSection').toggle(selectedOption === 'Visualizza Eventi Acquistati');
+        });
+    });
+</script>
+
+

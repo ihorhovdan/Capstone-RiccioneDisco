@@ -1,0 +1,64 @@
+﻿@model RiccioneDisco.Models.ChangeProfileViewModel
+
+<link rel="stylesheet" href="~/css/profilo/profilo.css" asp-append-version="true" />
+
+<div class="container profile-container">
+    <h2>Cambia password e informazioni personali</h2>
+
+    <form asp-action="UpdateProfile" method="post">
+
+        <input type="hidden" asp-for="UserId" />
+
+        <div class="form-group">
+            <label asp-for="Nome">Nome</label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Cognome">Cognome</label>
+            <input asp-for="Cognome" class="form-control" />
+            <span asp-validation-for="Cognome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OldPassword">Vecchia Password</label>
+            <input type="password" asp-for="OldPassword" class="form-control" />
+            <span asp-validation-for="OldPassword" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NewPassword">Nuova Password</label>
+            <input type="password" asp-for="NewPassword" class="form-control" />
+            <span asp-validation-for="NewPassword" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConfirmPassword">Conferma Password</label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn custom-btn">Salva modifiche</button>
+    </form>
+
+    <!-- Messaggi di successo o di errore -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+</div>

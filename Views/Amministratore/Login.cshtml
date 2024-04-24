@@ -1,0 +1,61 @@
+﻿<link rel="stylesheet" href="~/css/loginRegister/loginRegister.css" asp-append-version="true" />
+
+
+
+@{
+    ViewData["Title"] = "Amministratore";
+}
+
+
+<div style="margin-top: 150px;">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 mx-auto">
+            <div class="login-panel">
+                <h2 class=" text-center mb-4 mt-5" ">Login Amministratore</h2>
+                <form asp-action="Login" method="post" class="form-login">
+                    <div class="mb-3">
+                        <input id="email" name="email" type="email" class="form-control" placeholder="Email" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn custom-btn btn-accendi ms-auto mb-5">Accedi</button>
+
+                </form>
+                @if (ViewData["ErroreLogin"] != null)
+                {
+                    <div class="alert alert-danger mt-3" role="alert">
+                        @ViewData["ErroreLogin"]
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Loghi delle discoteche -->
+<!-- Loghi delle discoteche -->
+<div class="logo-container mt-5">
+    <div class="row d-flex justify-content-between">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-4">
+            <img src="/images/loghi/cocoricoTrasparente.png" alt="Discoteche Riccione" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-4">
+            <img src="/images/loghi/villaDelleRoseTrasparente.png" alt="Discoteche Riccione" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-4">
+            <img src="/images/loghi/peterPanTrasparente.png" alt="Discoteche Riccione" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-4">
+            <img src="/images/loghi/altromondoTrasparente.png" alt="Discoteche Riccione" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-4">
+            <img src="/images/loghi/riminiBeachArenaTrasparente.png" alt="Discoteche Riccione" class="img-fluid">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+﻿@model List<RiccioneDisco.Models.Moduli>
+@{
+    ViewData["Title"] = "Amministratore";
+}
+
+<script>
+    function switchTable(tableId) {
+        var tables = document.querySelectorAll('.hotel-table');
+        var targetTable = document.getElementById(tableId);
+        var isTargetVisible = targetTable.style.display === 'table';
+
+        tables.forEach(function (table) {
+            // Nascondi tutte le tabelle
+            table.style.display = 'none';
+        });
+
+        // Se la tabella selezionata era già visibile, la funzione termina qui,
+        // lasciando tutte le tabelle nascoste.
+        // Altrimenti, rendi visibile la tabella selezionata.
+        if (!isTargetVisible) {
+            targetTable.style.display = 'table';
+        }
+    }
+</script>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4 mt-5">DASHBOARD RICHIESTE PREVENTIVI</h3>
+                    <form method="post" asp-action="Logout" asp-controller="Amministratore">
+                        <button type="submit" class="btn btn-danger btn-block mx-auto d-block">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-secondary" onclick="switchTable('table-ardea')">Hotel Ardea</button>
+                <button type="button" class="btn btn-secondary" onclick="switchTable('table-lasvegas')">Hotel Las Vegas</button>
+                <button type="button" class="btn btn-secondary" onclick="switchTable('table-modenese')">Hotel Modenese</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div id="table-ardea" class="hotel-table" style="display: none;">
+                @if (Model == null || Model.Count == 0)
+                {
+                    <h3>Non ci sono preventivi nel database</h3>
+                }
+                else
+                {
+                    <h3>Tabella Ardea</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Cellulare</th>
+                                <th scope="col">NumPersone</th>
+                                <th scope="col">Data Arrivo</th>
+                                <th scope="col">Data Partenza</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var modulo in Model)
+                            {
+                                <tr>
+                                    <td>@modulo.ID</td>
+                                    <td>@modulo.Nome</td>
+                                    <td>@modulo.Cognome</td>
+                                    <td>@modulo.Email</td>
+                                    <td>@modulo.Cellulare</td>
+                                    <td>@modulo.NumPersone</td>
+                                    <td>@modulo.DataArrivo.ToShortDateString()</td>
+                                    <td>@modulo.DataPartenza.ToShortDateString()</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+
+            <div id="table-lasvegas" class="hotel-table" style="display: none;">
+                @if (ViewData["ModelLasVegas"] != null)
+                {
+                    var lasVegasData = ViewData["ModelLasVegas"] as List<RiccioneDisco.Models.Moduli>;
+                    if (lasVegasData != null && lasVegasData.Count > 0)
+                    {
+                        <h3>Tabella Las Vegas</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Cognome</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Cellulare</th>
+                                    <th scope="col">NumPersone</th>
+                                    <th scope="col">Data Arrivo</th>
+                                    <th scope="col">Data Partenza</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in lasVegasData)
+                                {
+                                    <tr>
+                                        <td>@item.ID</td>
+                                        <td>@item.Nome</td>
+                                        <td>@item.Cognome</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Cellulare</td>
+                                        <td>@item.NumPersone</td>
+                                        <td>@item.DataArrivo.ToShortDateString()</td>
+                                        <td>@item.DataPartenza.ToShortDateString()</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+                else
+                {
+                    <h3>Non ci sono preventivi nel database</h3>
+                }
+            </div>
+
+            <div id="table-modenese" class="hotel-table" style="display: none;">
+                @if (ViewData["ModelModenese"] != null)
+                {
+                    var modeneseData = ViewData["ModelModenese"] as List<RiccioneDisco.Models.Moduli>;
+                    if (modeneseData != null && modeneseData.Count > 0)
+                    {
+                        <h3>Tabella Modenese</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Cognome</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Cellulare</th>
+                                    <th scope="col">NumPersone</th>
+                                    <th scope="col">Data Arrivo</th>
+                                    <th scope="col">Data Partenza</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in modeneseData)
+                                {
+                                    <tr>
+                                        <td>@item.ID</td>
+                                        <td>@item.Nome</td>
+                                        <td>@item.Cognome</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Cellulare</td>
+                                        <td>@item.NumPersone</td>
+                                        <td>@item.DataArrivo.ToShortDateString()</td>
+                                        <td>@item.DataPartenza.ToShortDateString()</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+                else
+                {
+                    <h3>Non ci sono preventivi nel database</h3>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <a href="@Url.Action("AddEvent", "Amministratore")" class="btn btn-success">Aggiungi Nuovo Evento</a>
+            <a href="@Url.Action("ManageEvents", "Amministratore")" class="btn btn-success">Gestisci Eventi</a>
+        </div>
+       
+    </div>
+</div>
+
+
+
+

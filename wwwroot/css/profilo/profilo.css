@@ -1,0 +1,180 @@
+﻿body {
+    background-color: #f7f7f7;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url(/images/eventi/background1.jpg)
+}
+
+.profile-container {
+    margin-top: 150px; /* Aggiunge spazio sopra il contenuto */
+}
+
+.event-image {
+    height: 100px;
+    width: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        margin-top: 80px; /* Meno spazio su dispositivi mobili */
+    }
+
+    .event-image {
+        width: 100%; /* Immagini a tutta larghezza su dispositivi mobili */
+    }
+}
+
+
+
+h2 {
+    color:white;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px; /* Aggiusta secondo necessità */
+}
+
+.profile-image {
+    width: 100px; /* Imposta una larghezza fissa per desktop */
+    height: auto; /* Mantiene il rapporto proporzionale */
+    border-radius: 50%; /* Rende l'immagine rotonda */
+}
+
+@media (max-width: 768px) {
+    .profile-image {
+        width: 70px; /* Riduce la dimensione su dispositivi mobili */
+    }
+}
+
+#profileOptions {
+    width: 20%; /* o un'altra misura che preferisci */
+    margin: 0 auto; /* Centra il dropdown orizzontalmente */
+}
+
+@media (max-width: 768px) {
+    #profileOptions {
+        width: 65%; /* Larghezza più ampia su dispositivi mobili */
+    }
+}
+
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* Opacità del 90% */
+    border: 1px solid #ddd; /* Aggiunge un bordo leggero per definire meglio la card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per distinguerla dal background */
+}
+
+.card-img-top {
+    height: auto; /* Assicurati che l'altezza sia proporzionale alla nuova larghezza */
+    max-height: 150px; /* Potresti voler limitare l'altezza delle immagini */
+}
+
+.card-body {
+    padding: 0.5rem; /* Riduci il padding per guadagnare spazio */
+}
+
+.card-title {
+    font-size: 1rem; /* Riduci la dimensione del font per i titoli se necessario */
+}
+
+.event-date, .event-luogo, .card-text {
+    font-size: 0.8rem; /* Riduci la dimensione del font per il testo normale */
+}
+
+
+.card-body, .card-title, .card-text, .event-date, .event-luogo {
+    text-align: center; /* Centra il testo all'interno della card */
+}
+
+.card {
+    overflow: hidden; /* Previene il trabocco di contenuto al di fuori delle card */
+}
+
+.card-img-top {
+    width: 100%; /* Assicura che l'immagine copra la larghezza della card */
+    height: auto; /* Mantiene le proporzioni corrette dell'immagine */
+}
+
+/* Opzionale: potresti voler anche centrare il contenuto verticalmente */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Regolazioni CSS per le card e il testo all'interno */
+.card {
+    background-color: rgba(0, 0, 0, 0.8); /* Nero con un po' di opacità */
+    color: white; /* Cambia il colore del testo in bianco */
+    border: none; /* Opzionale: rimuove i bordi se presenti */
+}
+
+    .card h5, .card p, .card .event-luogo {
+        color: white; /* Assicurati che tutto il testo nelle card sia bianco */
+    }
+
+    /* Opzionale: cambia il colore delle icone per una migliore visibilità */
+    .card .fas, .card .bi {
+        color: white; /* Imposta il colore delle icone in bianco */
+    }
+
+/* Opzionale: Aggiunta di un'ombra leggera per migliorare la leggibilità del testo */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Styles for Form Select in Profilo View */
+#profileOptions {
+    display: inline-block;
+    width: auto; /* Allows the select to grow based on content */
+    padding: 0.8rem 1.2rem; /* Larger, easier to use */
+    border-radius: 0.5rem; /* More rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for a lift effect */
+    border: none; /* Removes the border for a cleaner look */
+    background-color: rgba(50, 50, 50, 0.9); /* Semi-transparent darker black */
+    color: white; /* White text to contrast with the black */
+    appearance: none; /* Removes the default browser styling */
+    cursor: pointer; /* Changes the cursor on hover to indicate it's selectable */
+    background-image: linear-gradient(45deg, transparent 50%, white 50%), linear-gradient(135deg, white 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+    #profileOptions:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25); /* Arancione moderno al focus */
+    }
+
+
+/* Optional: refine the gradient and icon effect */
+#profileOptions {
+    background-image: linear-gradient(to right, rgba(50, 50, 50, 0.9) 0%, rgba(75, 75, 75, 0.9) 100%), url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C/polyline%3E%3C/svg%3E');
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 0.7rem center, right 1rem center;
+    background-size: 16px 12px;
+}
+
+#option {
+    color: white;
+}
+
+
+footer {
+    position:relative;
+    top: 550px;
+}
+
+p {
+    color:white;
+    line-height: 30px;
+    text-align: center;
+}
+
+#personalDataSection {
+    margin-top: 30px;
+}

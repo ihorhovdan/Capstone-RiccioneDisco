@@ -1,0 +1,175 @@
+﻿body {
+    margin-top: 220px;
+    background-image: url(/images/eventi/background1.jpg);
+}
+
+.table {
+    width: 100%; /* Imposta la larghezza della tabella al 80% del suo contenitore */
+
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    .table td, .table th {
+        vertical-align: middle; /* Allinea verticalmente il contenuto delle celle al centro */
+        text-align: left; /* Allinea il testo a sinistra */
+        padding: 8px; /* Spazio interno per ciascuna cella */
+        color:white;
+    }
+
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+    justify-content: space-between; /* Distanzia gli elementi uniformemente */
+    align-items: flex-start; /* Allinea gli elementi all'inizio del contenitore */
+    
+}
+
+.table-responsive {
+    flex: 1 1 100%; /* Assicura che la tabella occupi il 60% dello spazio disponibile */
+    max-width: 100%; /* Aumenta la larghezza massima della tabella */
+}
+
+.checkout-form {
+    flex: 1 1 50%; /* Assicura che il form occupi il 40% dello spazio disponibile */
+    max-width: 50%; /* Riduci la larghezza massima del form */
+    padding-left: 20px; /* Distanza tra la tabella e il form */
+    display: flex;
+    flex-direction: column; /* Organizza i contenuti del form verticalmente */
+    align-items: center; /* Centra gli elementi all'interno del form */
+    margin-top: 130px;
+    
+}
+
+
+
+    .checkout-form label {
+        display: block; /* Rende il label un blocco per permettere il centratura */
+        text-align: center; /* Centra il testo */
+        
+    }
+.h4-total {
+    width: 100%; /* Usa la piena larghezza del contenitore del form */
+    text-align: center; /* Centra il testo orizzontalmente */
+    margin-top: 20px; /* Spazio sopra per distinguerlo dal contenuto sopra di esso */
+    margin-bottom: 20px; /* Spazio sotto per distinguerlo dal contenuto sotto di esso */
+    color: white; /* Colore del testo bianco per contrastare con lo sfondo */
+}
+
+.form-group {
+    max-width: 100%; /* Riduci la larghezza massima dei campi del form */
+    margin: auto; /* Centra i campi del form nel loro contenitore */
+}
+
+h6, h4, label {
+    color: white;
+}
+
+h6 {
+    text-align: center; /* Centra il testo orizzontalmente */
+    margin-top: 30px; /* Spazio sopra l'intestazione */
+    margin-bottom: 20px; /* Spazio sotto l'intestazione */
+}
+
+.form-control {
+    width: 100%; /* Imposta la larghezza dei controlli di input al 100% della loro .form-group */
+    padding: 8px 12px; /* Aumenta il padding per un migliore comfort di scrittura */
+    font-size: 16px; /* Aumenta la dimensione del font per una migliore leggibilità */
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    
+    color: #333;
+}
+
+.custom-btn {
+    display: block; /* Rende il bottone un blocco, permettendogli di occupare la sua linea */
+
+    margin: 20px auto; /* Centra il bottone orizzontalmente e aggiunge margine sopra e sotto */
+
+
+    border: none; /* Rimuove i bordi */
+    border-radius: 5px; /* Aggiunge bordi arrotondati */
+    cursor: pointer; /* Mostra un cursore a mano quando si passa sopra il bottone */
+}
+
+
+
+.form-group {
+    margin-bottom: 10px; /* Aumenta il margine inferiore di ogni gruppo di form per distanziarli */
+}
+
+
+footer {
+    position: relative;
+    top: 100px;
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+        margin-top: 50px;
+    }
+    .checkout-container {
+        flex-direction: column; /* Cambia la direzione del flex container da row a column */
+        align-items: center;
+    }
+
+    .table-responsive, .checkout-form {
+        flex: 1 1 100%; /* Fa sì che entrambi gli elementi occupino il 100% della larghezza del container */
+        max-width: 100%; /* Imposta la larghezza massima al 100% per assicurarsi che si estendano per tutta la larghezza */
+        padding: 0 10px; /* Aggiunge un po' di padding per non attaccare i bordi dello schermo */
+    }
+
+    .checkout-form {
+        padding-left: 0; /* Rimuove il padding a sinistra aggiunto in desktop view */
+        padding-top: 20px; /* Aggiunge un po' di spazio sopra il form per distanziarlo dalla tabella */
+        margin-top: 0px;       
+    }
+
+    .custom-btn {
+        width: auto; /* Lascia che il bottone si adatti al contenuto o al padding specificato */
+        padding: 10px 20px; /* Aumenta il padding per un bottone più facile da toccare su dispositivi touch */
+    }
+
+    /* Nasconde la colonna "Prezzo unitario" */
+    .table thead th:nth-child(1), .table tbody td:nth-child(2) {
+        display: none;
+    }
+
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    
+}
+
+/* Nasconde la colonna "Prezzo unitario" */
+.table thead th:nth-child(4), .table tbody td:nth-child(4) {
+    display: none;
+}
+
+.form-control {
+    padding: 8px 12px; /* Assicura che i controlli di input abbiano padding sufficiente */
+    font-size: 16px; /* Mantiene la leggibilità aumentando la dimensione del font */
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.h4-total, h6 {
+    text-align: center; /* Centra i titoli */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Aumenta lo spazio tra i campi del form */
+}
+
+
+
+
+
+
+
+    

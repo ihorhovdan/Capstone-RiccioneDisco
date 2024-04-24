@@ -1,0 +1,150 @@
+﻿
+<title>Acquista Eventi</title>
+<link rel="stylesheet" href="~/css/eventi/eventi.css" asp-append-version="true">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<!-- Inclusione di jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+
+<body>
+
+    <div id="notification" class="notification-popup" style="display: none;">
+        <i class="bi bi-check-circle"></i>
+        <p>Prodotto aggiunto al carrello</p>
+    </div>
+
+
+    <h2 class="jersey-15-regular">SCEGLI UNA DISCOTECA</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <form method="get" class="form-inline">
+            <select class="form-select form-select-lg mb-3" name="discoteca" onchange="this.form.submit()">
+                <option value="">Tutte le discoteche</option>
+                @if (ViewData["SelectedDiscoteca"]?.ToString() == "Cocorico")
+                {
+                    <option value="Cocorico" selected>Cocorico</option>
+                }
+                else
+                {
+                    <option value="Cocorico">Cocorico</option>
+                }
+                @if (ViewData["SelectedDiscoteca"]?.ToString() == "Villa delle Rose")
+                {
+                    <option value="Villa delle Rose" selected>Villa delle Rose</option>
+                }
+                else
+                {
+                    <option value="Villa delle Rose">Villa delle Rose</option>
+                }
+                @if (ViewData["SelectedDiscoteca"]?.ToString() == "Peter Pan")
+                {
+                    <option value="Peter Pan" selected>Peter Pan</option>
+                }
+                else
+                {
+                    <option value="Peter Pan">Peter Pan</option>
+                }
+                @if (ViewData["SelectedDiscoteca"]?.ToString() == "Altromondo Studios")
+                {
+                    <option value="Altromondo Studios" selected>Altromondo Studios</option>
+                }
+                else
+                {
+                    <option value="Altromondo Studios">Altromondo Studios</option>
+                }
+            </select>
+
+        </form>
+        <button id="backButton" class="btn btn-secondary mt-3" style="display: none;" onclick="window.location.href='/AcquistaEventi/Index';">Torna indietro</button>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            @foreach (var evento in Model)
+            {
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card h-100">
+                        <img src="@evento.Immagine" class="card-img-top" alt="@evento.Titolo">
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text event-date">@evento.Data</p>
+                            <h5 class="card-title">@evento.Titolo</h5>
+                            <p class="card-text event-luogo"><i class="fas fa-map-marker-alt mx-1"></i>@evento.Luogo</p>
+                            <p class="card-text">€@evento.Prezzo</p>
+                            <form class="mt-auto add-to-cart-form" method="post" asp-action="AggiungiAlCarrello" asp-controller="Carrello">
+                                <input type="hidden" name="eventoId" value="@evento.IdEvento">
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary button-decrement" type="button">-</button>
+                                    <input type="number" name="quantita" value="1" min="1" max="10" class="form-control text-center quantita">
+                                    <button class="btn btn-outline-secondary button-increment" type="button">+</button>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn custom-btn icon-large"><i class="bi bi-cart-plus-fill"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script>
+        // Impostazione degli eventi increment e decrement
+        document.querySelectorAll('.button-increment').forEach(button => {
+            button.onclick = function () {
+                var input = this.parentElement.querySelector('.quantita');
+                var currentValue = parseInt(input.value, 10);
+                if (currentValue < 10) input.value = currentValue + 1;
+            };
+        });
+
+        document.querySelectorAll('.button-decrement').forEach(button => {
+            button.onclick = function () {
+                var input = this.parentElement.querySelector('.quantita');
+                var currentValue = parseInt(input.value, 10);
+                if (currentValue > 1) input.value = currentValue - 1;
+            };
+        });
+
+
+
+
+        $(document).ready(function () {
+            $('.add-to-cart-form').submit(function (e) {
+                e.preventDefault();  // Previene il comportamento di invio normale del form
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(), // serializza i dati del form
+                    success: function (data) {
+                        $('#notification').css('display', 'flex');
+                        $('#notification').css('opacity', '0');
+                        $('#notification').animate({ opacity: 1 }, 500); // Appare lentamente
+
+                        $('#notification').css('animation', 'popUp 0.5s forwards, scaleDown 0.3s 2.5s forwards');
+                        setTimeout(function () {
+                            $('#notification').fadeOut('slow', function () {
+                                $(this).css('display', 'none');
+                                $(this).css('animation', 'none');
+                            });
+                        }, 3000); // Dopo 3 secondi, scompare lentamente
+                    },
+                    error: function () {
+                        $('#notification').css('background-color', '#dc3545'); // Rosso per errore
+                        $('#notification').fadeIn().delay(2500).fadeOut();
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+</body>
+

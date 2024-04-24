@@ -1,0 +1,96 @@
+﻿/* General Body Style */
+body {
+    background-image: url(/images/eventi/background1.jpg);
+    color: white; /* Ensures text is white for high contrast on the dark background */
+    font-family: Arial, sans-serif; /* Sets a clean, modern font for all text */
+}
+
+/* Login Panel Style */
+.login-panel {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid transparent;
+}
+
+/* Input Styles */
+.form-control {
+    background-color: transparent; /* No fill color for a sleek look */
+    border-radius: 20px;
+    border: 2px solid; /* Blue border to stand out on the light background */
+    color: #fff; /* White text color for readability */
+    padding: 10px 15px;
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+    .form-control:focus {
+        border-color: #004494; /* Darker blue when focused */
+        box-shadow: 0 0 0 0.2rem rgba(0,86,179,.25);
+        outline: none; /* Removes default focus outline */
+    }
+
+
+
+  
+
+/* Typography */
+h2, h6 {
+    text-align: center; /* Center-aligns headings */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem; /* Larger font size for main heading */
+    letter-spacing: 1px; /* Letter spacing for a touch of style */
+}
+
+h6 {
+    font-size: 1rem;
+    opacity: 0.8; /* Slightly transparent for less emphasis */
+}
+
+/* Button Containers for better alignment */
+.btn-entra, .btn-registrati {
+    text-align: center;
+}
+
+/* Placeholder Styles to enhance visibility */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white; /* Light grey color for placeholders */
+    opacity: 1; /* Full opacity (required for Firefox) */
+    text-align: center;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+/* Adjustments for specific input types */
+.form-login input[type="email"],
+.form-login input[type="password"],
+.form-login input[type="text"] {
+    width: 100%; /* Ensures full width within form */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Login Panel Full Centering (Optional) */
+.login-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px; /* Limita la larghezza del pannello per evitare che sia troppo largo */
+    margin: 0 auto;
+}
+
+.btn-accendi {
+    display: block;
+    margin: 0 auto; /* Centra il bottone all'interno del suo contenitore */
+    width: 150px; /* Imposta una larghezza fissa per il bottone */
+}

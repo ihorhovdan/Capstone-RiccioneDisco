@@ -1,0 +1,68 @@
+﻿body {
+    margin-top: 100px; /* Ridotto per meno spazio vuoto superiore */
+    background-image: url(/images/eventi/background1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f7f7f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.order-details-container {
+    display: flex;
+    flex-direction: row-reverse; /* Tieni la tabella a destra */
+    justify-content: center; /* Centra il contenuto */
+    align-items: flex-start; /* Allinea gli elementi in alto */
+    margin: 20px auto; /* Centrato orizzontalmente e spazio verticale */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    width: 90%; /* Controlla la larghezza del contenitore per evitare il sovraffollamento */
+}
+
+.order-info {
+    flex: 1 1 50%; /* Prende metà dello spazio disponibile */
+    padding: 20px;
+    
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px; /* Distanza tra le informazioni e la tabella */
+}
+
+.table-container {
+    flex: 1 1 45%; /* Mantieni spazio per la tabella */
+}
+
+.table {
+    width: 100%;
+    
+    border-collapse: collapse;
+}
+
+h6, th, td {
+    color: #f7f7f7;
+    text-align: center;
+    margin-bottom: 20px; /* Spazio dopo il titolo */
+}
+
+@media (max-width: 768px) {
+    .order-details-container {
+        flex-direction: column;
+        align-items: center; /* Centra gli elementi verticalmente in mobile */
+    }
+
+    .order-info, .table-container {
+        flex: 1 1 100%; /* Ogni elemento prende l'intera larghezza */
+        margin: 10px 0; /* Aggiunge spazio verticale tra gli elementi */
+    }
+
+    .table {
+        font-size: 0.8rem; /* Adatta la dimensione del font per schermi più piccoli */
+    }
+}
+
+.site-footer {
+    position: relative;
+    top: 170px;
+        
+}

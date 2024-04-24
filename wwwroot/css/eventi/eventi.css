@@ -1,0 +1,268 @@
+﻿body {
+    background-color: #f7f7f7;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url(/images/eventi/background1.jpg)
+}
+
+h2 {
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    
+    font-size: 3rem;
+}
+
+/* Stili aggiuntivi per il form e il select */
+/* Stili aggiuntivi per il form e il select */
+.form-select {
+    display: inline-block;
+    width: auto; /* Permette al select di crescere in base al contenuto */
+    padding: 0.8rem 1.2rem; /* Più grande e più facile da usare */
+    border-radius: 0.5rem; /* Angoli più arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra più morbida per un effetto di elevazione */
+    border: none; /* Rimuove il bordo per un look più pulito */
+    background-color: rgba(50, 50, 50, 0.9); /* Nero più chiaro opaco */
+    color: white; /* Testo bianco per contrastare con il nero */
+    appearance: none; /* Rimuove lo stile predefinito del browser */
+    cursor: pointer; /* Mostra un cursore a mano quando si passa sopra il select */
+    background-image: linear-gradient(45deg, transparent 50%, white 50%), linear-gradient(135deg, white 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+    .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(52,152,219,0.25); /* Un focus blu più moderno */
+    }
+
+/* Opzionale: perfeziona l'effetto del gradiente e dell'icona */
+/* Stili aggiuntivi per il form e il select */
+.form-select {
+    display: inline-block;
+    width: auto; /* Permette al select di crescere in base al contenuto */
+    padding: 0.8rem 1.2rem; /* Più grande e più facile da usare */
+    border-radius: 0.5rem; /* Angoli più arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra più morbida per un effetto di elevazione */
+    border: none; /* Rimuove il bordo per un look più pulito */
+    background-color: rgba(50, 50, 50, 0.9); /* Nero più chiaro opaco */
+    color: white; /* Testo bianco per contrastare con il nero */
+    appearance: none; /* Rimuove lo stile predefinito del browser */
+    cursor: pointer; /* Mostra un cursore a mano quando si passa sopra il select */
+    background-image: linear-gradient(45deg, transparent 50%, white 50%), linear-gradient(135deg, white 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+    .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(52,152,219,0.25); /* Un focus blu più moderno */
+    }
+
+/* Opzionale: perfeziona l'effetto del gradiente e dell'icona */
+.form-select {
+    background-image: linear-gradient(to right, rgba(50, 50, 50, 0.9) 0%, rgba(75, 75, 75, 0.9) 100%), url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C/polyline%3E%3C/svg%3E');
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 0.7rem center, right 1rem center;
+    background-size: 16px 12px;
+}
+
+
+
+
+/* Classe opzionale se desideri una larghezza specifica o altre proprietà */
+.form-select-lg {
+    padding: 0.5rem 1rem; /* Più grande e più facile da usare */
+}
+
+
+h5 {
+font-size:0.9rem;
+}
+
+.event-date {
+    font-size: 0.8rem; /* Aggiunge un margine inferiore */
+}
+
+.custom-btn {
+    font-size: 0.7rem;
+    text-align:center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* Opacità del 90% */
+    border: 1px solid #ddd; /* Aggiunge un bordo leggero per definire meglio la card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per distinguerla dal background */
+}
+
+.event-luogo {
+    font-size: 0.9rem;
+}
+
+/* Applica questi stili solo se la larghezza dello schermo è almeno 992px, comunemente usata per dispositivi desktop */
+
+    .input-group {
+        width: 100px; /* Imposta una larghezza fissa per il gruppo di input */
+        margin: auto; /* Centra il gruppo di input all'interno del suo contenitore */
+        
+    }
+    .form-control {
+        padding: 0px;
+    }
+        
+
+        .input-group .input-group-prepend .btn,
+        .input-group .input-group-append .btn {
+            padding: 0 10px; /* Riduci il padding dei bottoni per risparmiare spazio */
+        }
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Per Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.icon-large {
+    font-size: 1.2em;
+    padding: 5px 40px;/* Aumenta la dimensione dell'icona */
+}
+
+
+
+.card-img-top {
+    height: auto; /* Assicurati che l'altezza sia proporzionale alla nuova larghezza */
+    max-height: 150px; /* Potresti voler limitare l'altezza delle immagini */
+}
+
+.card-body {
+    padding: 0.5rem; /* Riduci il padding per guadagnare spazio */
+}
+
+.card-title {
+    font-size: 1rem; /* Riduci la dimensione del font per i titoli se necessario */
+}
+
+.event-date, .event-luogo, .card-text {
+    font-size: 0.8rem; /* Riduci la dimensione del font per il testo normale */
+}
+
+
+.card-body, .card-title, .card-text, .event-date, .event-luogo {
+    text-align: center; /* Centra il testo all'interno della card */
+}
+
+.card {
+    overflow: hidden; /* Previene il trabocco di contenuto al di fuori delle card */
+}
+
+.card-img-top {
+    width: 100%; /* Assicura che l'immagine copra la larghezza della card */
+    height: auto; /* Mantiene le proporzioni corrette dell'immagine */
+}
+
+/* Opzionale: potresti voler anche centrare il contenuto verticalmente */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.notification-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: rgb(238, 80, 7); /* Verde per il successo */
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column; /* Organizza i figli in colonna */
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+    .notification-popup i {
+        font-size: 48px; /* Icona grande */
+        margin-bottom: 10px; /* Distanza tra icona e testo */
+    }
+
+    .notification-popup p {
+        font-size: 16px; /* Dimensione testo */
+        margin: 0; /* Rimuovi margini per mantenere tutto compatto */
+    }
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes scaleDown {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+
+/* Regolazioni CSS per le card e il testo all'interno */
+.card {
+    background-color: rgba(0, 0, 0, 0.8); /* Nero con un po' di opacità */
+    color: white; /* Cambia il colore del testo in bianco */
+    border: none; /* Opzionale: rimuove i bordi se presenti */
+}
+
+.card h5, .card p, .card .event-luogo {
+    color: white; /* Assicurati che tutto il testo nelle card sia bianco */
+}
+
+/* Opzionale: cambia il colore delle icone per una migliore visibilità */
+.card .fas, .card .bi {
+    color: white; /* Imposta il colore delle icone in bianco */
+}
+
+/* Opzionale: Aggiunta di un'ombra leggera per migliorare la leggibilità del testo */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.jersey-15-regular {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+

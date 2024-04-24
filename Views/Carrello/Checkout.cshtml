@@ -1,0 +1,70 @@
+﻿<link rel="stylesheet" href="~/css/carrello/checkout.css" asp-append-version="true" />
+
+
+@model RiccioneDisco.Models.CheckoutViewModel
+
+
+
+@if (Model.CarrelloItems.Any())
+{
+    <div class="container mt-5 checkout-container">
+        <div class="table-responsive" style="flex: 1; min-width: 50%;">
+            <h6>Riepilogo Ordine</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Evento</th>
+                        <th>Quantità</th>
+                        <th>Prezzo unitario</th>
+                        <th>Prezzo totale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CarrelloItems)
+                    {
+                        <tr>
+                            <td><img src="@item.ImageUrl" alt="Immagine Evento" style="width:100px; height:auto;"></td>
+                            <td>@item.TitoloEvento</td>
+                            <td>@item.Quantita</td>
+                            <td>@item.Prezzo.ToString("C")</td>
+                            <td>@(item.Subtotale.ToString("C"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="checkout-form" style="flex: 1; padding-left: 20px;">
+            
+            <form asp-action="ConfermaOrdine" method="post">
+                <div class="form-group">
+                    <label for="IndirizzoFatturazione">Indirizzo di Fatturazione</label>
+                    <input type="text" class="form-control" id="IndirizzoFatturazione" name="IndirizzoFatturazione" required>
+                </div>
+                <div class="form-group">
+                    <label for="NumeroCarta">Numero Carta di Credito</label>
+                    <input type="text" class="form-control" id="NumeroCarta" name="NumeroCarta" required>
+                </div>
+                <div class="form-group">
+                    <label for="CVV">CVV</label>
+                    <input type="text" class="form-control" id="CVV" name="CVV" required>
+                </div>
+                <div class="form-group">
+                    <label for="DataScadenza">Data di Scadenza</label>
+                    <input type="text" class="form-control" id="DataScadenza" name="DataScadenza" placeholder="MM/YY" required>
+                </div>
+                <input type="hidden" name="TotaleOrdine" value="@Model.TotaleOrdine" />
+
+                <h6 class="h4-total">Totale Ordine: @Model.TotaleOrdine.ToString("C")</h6>
+                <!-- Aggiungi altri campi del form se necessario -->
+                <button type="submit" class="custom-btn">Conferma Ordine</button>
+            </form>
+        </div>
+    </div>
+
+
+}
+else
+{
+    <p>Il carrello è vuoto.</p>
+}

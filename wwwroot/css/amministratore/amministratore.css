@@ -1,0 +1,36 @@
+﻿h2 {
+    padding-top:80px;
+    font-size: 2rem;
+    text-align:center
+}
+
+/* Stile per il form del dropdown */
+.form-discoteca {
+    width: 100%; /* Imposta la larghezza del form a 25% del contenitore */
+    margin: 0 auto; /* Centra il form orizzontalmente */
+    display: block; /* Assicura che il form abbia il display block per centrarlo con margin auto */
+}
+
+/* Stile per il select dentro il form */
+.select-discoteca {
+    display: block; /* Rende il select un blocco per applicare margin e padding */
+    width: 100%; /* Imposta la larghezza del select al 100% del suo contenitore (form) */
+}
+
+/* Centra il label nel form */
+.label-discoteca {
+    text-align: center; /* Allinea il testo al centro */
+    display: block; /* Rende il label un blocco per applicare il text-align */
+    margin-bottom: 0.5rem; /* Aggiunge un margine inferiore per spazio */
+    margin-top: 5px;
+}
+
+/* Centra il testo all'interno delle opzioni del dropdown */
+.select-discoteca, .select-discoteca option {
+    text-align: center;
+    -webkit-appearance: none; /* Rimuove lo stile predefinito nei browser WebKit */
+}
+
+.btn-no-wrap {
+    white-space: nowrap;
+}

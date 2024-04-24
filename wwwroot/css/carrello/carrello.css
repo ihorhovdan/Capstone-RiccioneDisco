@@ -1,0 +1,288 @@
+﻿body {
+    background-color: #f7f7f7;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url(/images/eventi/background1.jpg);
+}
+
+h3 {
+    color: white;
+}
+
+/* Stile di base per la tabella */
+#cart-table {
+    background-color: #f2f2f2; /* Grigio chiaro */
+}
+
+/* Regolazioni per il layout della tabella responsive per schermi sotto i 768px */
+@media (max-width: 768px) {
+    #cart-table, #cart-table thead, #cart-table tbody, #cart-table th, #cart-table td, #cart-table tr {
+        display: block;
+    }
+
+       
+
+        #cart-table tr {
+            border: 0.5px solid #ccc;
+            margin-bottom: 10px;
+            padding-left: 10px; /* Spazio per migliorare la leggibilità */
+        }
+
+        #cart-table td {
+            text-align: left; /* Allinea il testo a sinistra */
+            display: flex; /* Usa flexbox per allineare etichetta e contenuto */
+            align-items: center; /* Centra gli elementi verticalmente */
+            padding: 10px 0; /* Padding consistente attorno al contenuto */
+        }
+
+            #cart-table td:before {
+                content: attr(data-title); /* Usa il valore di data-title come etichetta */
+                font-weight: bold;
+                color: #333;
+                margin-right: 10px; /* Spazio tra etichetta e contenuto */
+                white-space: nowrap; /* Impedisce alle etichette di andare a capo */
+            }
+
+            #cart-table td img {
+                width: 80px; /* Immagine più piccola in vista mobile */
+                height: auto;
+                margin-right: 10px; /* Spazio dopo l'immagine */
+            }
+
+    .quantity-selector, .subtotal {
+        margin-left: 10px; /* Spazio prima dei selettori e dei valori */
+    }
+}
+
+@media (max-width: 768px) {
+    #cart-table td:before {
+        content: attr(data-title);
+        font-weight: bold;
+        margin-right: 10px;
+        color: #333;
+    }
+}
+
+/* Assicurati di non mostrare le etichette nei display più grandi */
+@media (min-width: 769px) {
+    #cart-table td:before {
+        content: none;
+    }
+}
+
+
+.cart-container {
+    min-height: 70vh; /* Altezza minima del container per mantenere il footer in basso */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Questo centrerà il messaggio nel container se il carrello è vuoto */
+}
+
+.alert {
+    margin-top: 100px;
+    margin-bottom: 370px;
+    width: 100%; /* Assicura che l'alert occupi tutto lo spazio necessario */
+    text-align: center; /* Centra il testo dell'alert */
+}
+
+
+footer {
+    position: relative;
+    bottom: -170px;
+}
+
+table {
+    margin-top: 100px;
+    
+}
+
+@media (max-width: 768px) {
+    .select-form-control {
+        width: 40px; /* Imposta una larghezza più piccola per mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .select-form-control {
+        width: 50px; /* Larghezza ridotta per i display desktop */
+        margin: 0 auto; /* Centra il dropdown se necessario */
+    }
+}
+
+@media (max-width: 768px) {
+
+   
+
+
+    .custom-btn.btn-delete {
+        padding: 5px 8px; /* Riduce il padding intorno all'icona per diminuire le dimensioni del bottone */
+        font-size: 12px; /* Riduce la dimensione del testo se necessario */
+        line-height: 1; /* Ajusta l'altezza della linea per ridurre lo spazio extra */
+        
+    }
+
+        .custom-btn.btn-delete .bi-trash3-fill {
+            font-size: 14px; /* Aumenta la dimensione dell'icona del cestino */
+        }
+
+    
+
+    .custom-btn {
+        margin: 0 auto; /* Margini automatici per centrare il bottone */
+        display: block; /* Rende il bottone un blocco per abilitare i margini automatici */
+    }
+
+    table {
+        margin-top: 50px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-collapse: collapse;
+        color: #f7f7f7;
+    }
+
+    footer {
+        position: relative;
+        top: 20px;
+    }
+
+    #cart-table {
+        display: block; /* Rimuovi il comportamento di tabella */
+        width: 100%;
+    }
+
+        #cart-table thead {
+            display: none; /* Nascondi l'intestazione della tabella su dispositivi mobili */
+        }
+
+        #cart-table tbody {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #cart-table tr {
+            display: flex;
+            flex-direction: column;
+            width: 48%; /* Circa metà del contenitore per adattarsi 2 per riga */
+            margin-bottom: 20px; /* Aggiungi spazio tra le righe */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opzionale: aggiungi ombreggiatura per migliorare la visibilità */
+            padding: 10px; /* Spazio interno */
+        }
+
+        
+
+    
+
+    #cart-table .event-title { /* Assicurati che la classe corrisponda all'elemento HTML del titolo */
+        display: none; /* Nasconde il titolo su dispositivi mobili */
+    }
+}
+
+.totale h3 {
+    font-family: 'Arial', sans-serif; /* Cambia il font */
+    font-size: 24px; /* Aumenta la dimensione del font */
+    font-weight: bold; /* Rendi il testo grassetto */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3); /* Aggiungi un colore di sfondo */
+    padding: 10px 20px; /* Aggiungi padding per più spazio intorno al testo */
+    border-radius: 5px; /* Bordi arrotondati */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombra leggera per un effetto 3D */
+    text-align: center; /* Allinea il testo al centro */
+    margin-top: 20px; /* Margine superiore per distanziarlo dal contenuto sopra */
+}
+
+.totale-checkout-wrap {
+    display: flex;
+    justify-content: space-between; /* Distribuisce gli elementi ai lati opposti */
+    align-items: center; /* Centra verticalmente gli elementi nella row */
+    padding: 20px 0; /* Spazio sopra e sotto per separazione dalla tabella */
+}
+
+.totale h3 {
+    font-size: 20px; /* Dimensione del font per visibilità */
+    color: white; /* Colore del testo scuro per leggibilità */
+    position: relative;
+    top: -35px;
+}
+
+#checkout {
+    padding: 10px 20px; /* Dimensione del padding per rendere il bottone più grande */
+    font-size: 12px; /* Dimensione del font del bottone per coerenza */
+    text-decoration: none;
+    position: relative;
+    top: -30px;
+}
+
+.table td {
+    padding: 12px 8px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+
+
+
+
+
+
+.form-container {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Opzionale, a seconda del tuo layout specifico */
+}
+
+.button-container {
+    width: 100%; /* Assicurati che il container del bottone occupi tutto lo spazio disponibile se necessario */
+}
+
+/* Apply dark styling to the cart table */
+#cart-table {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+    color: #f7f7f7; /* Light text color for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+    #cart-table th, #cart-table td {
+        border-bottom: 1px solid #444; /* Slight border for definition between rows */
+        padding: 10px; /* Padding for spacing inside cells */
+    }
+
+    /* Enhanced visuals for headers */
+    #cart-table thead th {
+        background-color: rgba(0, 0, 0, 0.9); /* Slightly darker background for header */
+        font-weight: bold; /* Bold font for header titles */
+    }
+
+    /* Styling changes for hover effects on rows for better user experience */
+    #cart-table tbody tr:hover {
+        background-color: rgba(68, 68, 68, 0.9); /* Lighten the row on hover for better visibility */
+    }
+
+    /* Ensure that interactive elements are clearly visible */
+    #cart-table .btn-delete {
+        color: #f00; /* Red color for delete buttons to indicate action */
+        background: none; /* Transparent background */
+        border: none; /* No border for a cleaner look */
+        cursor: pointer; /* Pointer cursor on hover to indicate interactivity */
+    }
+
+
+    /* Assicurati che le intestazioni siano bianche in tutti i casi */
+    #cart-table th {
+        color: white; /* Imposta il colore del testo a bianco esplicitamente */
+        background-color: rgba(0, 0, 0, 0.9); /* Sfondo scuro per contrasto */
+        font-weight: bold; /* Grassetto per distinguere le intestazioni */
+        padding: 10px; /* Spaziatura interna per leggibilità */
+        text-align: center; /* Centra il testo */
+    }
+
+#cart-table td:before {
+    /* Stili per i titoli di ciascun campo dati in mobile, mostrati prima del contenuto */
+    content: attr(data-title);
+    font-weight: bold;
+    color: white; /* Assicura che il testo sia bianco */
+    margin-right: 10px;
+    display: block; /* Rendi visibile l'etichetta prima del contenuto */
+}

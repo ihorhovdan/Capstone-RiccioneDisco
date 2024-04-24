@@ -1,0 +1,41 @@
+﻿<link rel="stylesheet" href="~/css/carrello/dettagliOrdine.css" asp-append-version="true" />
+
+@model RiccioneDisco.Models.OrdineViewModel
+
+<h6 class="mt-5">Gentile @Model.NomeUtente @Model.CognomeUtente, ecco i suoi dettagli ordine:</h6>
+
+<div class="order-details-container">
+    <!-- Informazioni sull'ordine -->
+    <div class="order-info">
+        <p>Codice dell'ordine: @Model.IdOrdine</p>
+        <p>Totale Ordine: @Model.TotaleOrdine.ToString("C")</p>
+        <p>Indirizzo di Fatturazione: @Model.IndirizzoFatturazione</p>
+        <p>Numero della carta: @Model.NumeroCarta</p>
+        <p>Totale Ordine: @Model.TotaleOrdine.ToString("C")</p>
+    </div>
+
+    <!-- Tabella degli eventi -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Evento</th>
+                    <th>Quantità</th>
+                    <th>Prezzo totale</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td><img src="@item.ImageUrl" alt="Immagine Evento" style="width:100px; height:auto;"></td>
+                        <td>@item.TitoloEvento</td>
+                        <td>@item.Quantita</td>
+                        <td>@(item.Prezzo * item.Quantita)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

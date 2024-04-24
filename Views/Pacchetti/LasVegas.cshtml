@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Pacchetti Riccione";
+}
+
+@model Moduli
+
+<div class="container mt-5">
+    <div class="row d-flex align-items-center justify-content-center">
+    
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 text-center">
+            <div>
+                <h3>Cosa è incluso?</h3>
+                <ul class="list-unstyled">
+                    <li class="fw-bold"><span class="number">7</span> Notti in albergo</li>
+                    <li class="fw-bold"><span class="number">6</span> Ingressi In Discoteca</li>
+                    <li class="fw-bold"><span class="number">1</span> Ingresso all'Aquafan di Riccione</li>
+                    <li class="fw-bold">Mezza pensione inclusa</li>
+                    <li class="fw-bold">Drink Incluso in tutte le serate</li>
+                    <li class="fw-bold">Navette Incluse A/R</li>
+                    <li class="fw-bold">Lettino e Beach Party tutti i giorni</li>
+                    <li class="fw-bold">Assistenza 24 ore su 24</li>
+                </ul>
+            </div>
+
+            <img src="/images/pacchetti/lasvegas.jpeg" alt="Alternate Text" style="width: 60%;" />
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 text-center formPrenotazione">
+            
+            <h4 class="text-center mb-4 mt-3">Modulo Prenotazione</h4>
+            <!-- Inizio Form -->
+            <form class="g-3" asp-controller="Pacchetti" asp-action="LasVegas" method="post">
+                <div class="col-md-12">
+                    <label asp-for="@Model.DataArrivo" class="form-label">Check-in</label>
+                    <input type="date" class="form-control" asp-for="@Model.DataArrivo" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.DataPartenza" class="form-label">Check-out</label>
+                    <input type="date" class="form-control" asp-for="@Model.DataPartenza" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.Nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" asp-for="@Model.Nome" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.Cognome" class="form-label">Cognome</label>
+                    <input type="text" class="form-control" asp-for="@Model.Cognome" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" asp-for="@Model.Email" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.NumPersone" class="form-label">Adulti</label>
+                    <input type="number" class="form-control" asp-for="@Model.NumPersone" required>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="@Model.Cellulare" class="form-label">Cellulare</label>
+                    <input type="tel" class="form-control" asp-for="@Model.Cellulare" required>
+                </div>
+
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn custom-btn" style="color:white">Preventivo Gratuito</button>
+                </div>
+            </form>
+            <!-- Fine Form -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-5 mb-3">
+            <br>🌴Una Settimana in un rifugio accogliente dove il comfort è al centro dell'esperienza.
+            Le nostre camere spaziose e climatizzate offrono un'atmosfera accogliente per il tuo soggiorno.<br>
+
+            <br>🍽️Con la mezza pensione inclusa è la possibilità di scegliere la pensione completa,
+            gustati deliziosi piatti preparati con cura dai nostri chef,
+            rendendo ogni pasto un'esperienza gastronomica memorabile.<br>
+
+            <br>🏖️Rilassati al massimo e approfitta del tuo lettino in spiaggia
+            per goderti il ​​calore del sole. Le giornate sono allietate da coinvolgenti
+            beach party pomeridiani che aggiungeranno una ventata di divertimento alla tua vacanza.<br>
+
+            <br>🎉Di notte, immersi nella vibrante vita notturna di Riccione
+            con l'accesso esclusivo a 6 ingressi nelle discoteche più trendy della zona.
+            Incluso salta fila, drink e comode navette per garantire una serata senza pensieri.<br>
+
+            <br>💦Per un'esperienza acquatica emozionante, ti offriamo l'accesso al
+            rinomato parco acquatico Aquafan, incluso nel pacchetto. E non dimenticare di mostrare
+            il tuo spirito avventuroso con una maglietta e gadget esclusivi.<br>
+
+            <br>🕒Il nostro team di assistenza è disponibile 24 ore su 24 per
+            garantire che la tua vacanza sia perfetta in ogni dettaglio.<br>
+
+            <br>🔞Età 16/25 anni.
+
+            <br>🎟️Tutto questo a partire da soli <span class="price">599€</span> a persona.
+            Prenota ora e preparati a vivere un'esperienza unica e indimenticabile all'Hotel Las Vegas di Riccione!
+
+        </div>
+
+        
+
+
+        <script src="~/js/ValidatoreData.js"></script>

@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="description" content="Discoteche Riccione e Rimini e Pacchetti Vacanza Giovani">
+    <meta name="keywords" content="Pacchetti Riccione, Riccione Disco, Discoteche Riccione, Eventi Riccione,
+                                   Vacanza Riccione, Vita Notturna Riccione">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Discoteche Riccione"]Discoteche Riccione e Rimini e Pacchetti Vacanza Giovani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+
+</head>
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg @ViewData["NavbarClass"]">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="/images/logo1.png" alt="Riccione Disco" id="logo">
+            </a>
+            <div class=" d-lg-none ms-auto me-4 d-flex">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Index", "Profilo")" class="social-icon-link d-lg-none">
+                        <!-- Sostituisci 'bi-cart' con la tua classe icona del carrello se stai usando un set diverso di icone -->
+                        <span class="bi-person-circle"></span>
+                    </a>
+
+                    <a href="@Url.Action("VisualizzaCarrello", "Carrello")" class="social-icon-link d-lg-none ">
+                        <!-- Sostituisci 'bi-cart' con la tua classe icona del carrello se stai usando un set diverso di icone -->
+                        <span class="bi-cart-fill"></span>
+                    </a>
+
+                    
+                }
+
+            </div>
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link text-white click-scroll" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="ChiSiamo" asp-action="Index">Chi siamo</a>
+                    </li>
+
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAlberghi" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pacchetti
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownAlberghi">
+                            <a class="dropdown-item" asp-area="" asp-controller="Pacchetti" asp-action="Ardea">Pacchetto Ardea</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Pacchetti" asp-action="LasVegas">Pacchetto Las Vegas</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Pacchetti" asp-action="Modenese">Pacchetto Modenese</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAlberghi" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Alberghi
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownAlberghi">
+                            <a class="dropdown-item" asp-area="" asp-controller="Alberghi" asp-action="Ardea">Appartamenti Ardea</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Alberghi" asp-action="LasVegas">Hotel Las Vegas</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Alberghi" asp-action="Modenese">Hotel Modenese</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="AcquistaEventi" asp-action="Index">Acquista Eventi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <a class="nav-link text-white" asp-area="" asp-controller="Amministratore" asp-action="Amministratore">Area Amministratore</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link text-white" asp-area="" asp-controller="Amministratore" asp-action="Login">Area Amministratore</a>
+                        }
+                    </li>
+
+
+
+
+
+                </ul>
+
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Index", "Profilo")" class="social-icon-link d-none d-lg-block">
+                        <!-- Sostituisci 'bi-cart' con la tua classe icona del carrello se stai usando un set diverso di icone -->
+                        <span class="bi-person-circle"></span>
+                    </a>
+                    <!-- Visualizza il carrello se autenticato -->
+                    <a href="@Url.Action("VisualizzaCarrello", "Carrello")" class="social-icon-link d-none d-lg-block">
+                        <!-- Sostituisci 'bi-cart' con la tua classe icona del carrello se stai usando un set diverso di icone -->
+                        <span class="bi-cart-fill"></span>
+                    </a>
+
+                    <!-- Bottone di Logout -->
+                    <a href="#" id="logoutButton" class="social-icon-link d-none d-lg-block">
+                        <span class="bi bi-box-arrow-right"></span>
+                    </a>
+
+                }
+                else
+                {
+                    <!-- Bottone di Login -->
+                    <a href="@Url.Action("Login", "AcquistaEventi")" class="btn btn-warning">Login</a>
+                }
+
+
+
+
+            </div>
+        </div>
+    </nav>
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+
+
+
+
+
+    <footer class="site-footer @ViewData["FooterClass"]">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <h3 class="text-white mb-lg-0">Riccione Disco</h3>
+                    </div>
+
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="https://www.instagram.com/riccionedisco/" class="social-icon-link">
+                                    <span class="bi-instagram" style="color:white"></span>
+                                </a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="https://www.tiktok.com/@@riccionedisco" class="social-icon-link">
+                                    <span class="bi-tiktok"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Hai qualche domanda?</h5>
+
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 392-041-2405" class="site-footer-link text-decoration-none" style="color:white">
+
+                            392-041-2405
+                        </a>
+                    </p>
+
+                    <p class="text-white d-flex">
+                        <a href="#" class="site-footer-link text-decoration-none" style=" color:white">
+                            info@riccionedisco.it
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+
+                    <p class="text-white d-flex mt-3 mb-2">
+                        Viale Dante 130  Riccione (RN)
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 Riccione Disco</p>
+                    </div>
+
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link text-decoration-none" style="color:white">Terms &amp; Conditions</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link text-decoration-none" style="color:white">Privacy Policy</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.getElementById("logoutButton").addEventListener("click", function (event) {
+            event.preventDefault(); // Previene il comportamento predefinito del link
+
+            // Crea un elemento di form dinamico
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "/AcquistaEventi/Logout");
+
+            // Aggiungi un campo nascosto per la sicurezza CSRF, se necessario
+            // form.appendChild(document.createElement("input")).setAttribute("type", "hidden");
+
+            // Aggiungi il form alla pagina e invialo
+            document.body.appendChild(form);
+            form.submit();
+        });
+    </script>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.sticky.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/js/custom.js" asp-append-version="true"></script>
+    <script src="~/js/click-scroll.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+
+
+</body>
+</html>

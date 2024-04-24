@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "ChatBot";
+}
+<div style="margin-top: 100px">
+<h2>Chat con il nostro Bot</h2>
+
+<input type="text" id="userMessage" />
+<button onclick="sendMessage()">Invia</button>
+
+<div id="chatWindow"></div>
+</div>
+
+@section Scripts {
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("userMessage").value;
+            $.post("/ChatBot/GetBotResponse", { message: message }, function (data) {
+                $("#chatWindow").append("<div>Utente: " + message + "</div>");
+                $("#chatWindow").append("<div>Bot: " + data + "</div>");
+            });
+        }
+    </script>
+}
