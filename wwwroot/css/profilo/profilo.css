@@ -178,3 +178,10 @@ p {
 #personalDataSection {
     margin-top: 30px;
 }
+
+@media (min-width: 1200px) { /* breakpoint XL di Bootstrap */
+    .col-xl-2 {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+}

@@ -37,7 +37,7 @@
         <p><strong>Nome:</strong> @Model.Utente.Nome</p>
         <p><strong>Cognome:</strong> @Model.Utente.Cognome</p>
         <p><strong>Email:</strong> @Model.Utente.Email</p>
-        <p><strong>Password:</strong> **********</p>
+        <p><strong>Password:</strong>**********</p>
         <!-- La password non dovrebbe mai essere mostrata in chiaro per ragioni di sicurezza -->
         <a href="@Url.Action("Edit", "Profilo")" class="btn custom-btn">Modifica i tuoi dati personali</a>
     </div>
@@ -51,7 +51,7 @@
             <div class="row">
                 @foreach (var evento in Model.EventiAcquistati)
                 {
-                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                    <div class="col-6 col-md-4 col-lg-2 col-xl-2 mb-4">
                         <div class="card h-100">
                             <img src="@evento.Immagine" class="card-img-top" alt="@evento.Titolo">
                             <div class="card-body d-flex flex-column">
