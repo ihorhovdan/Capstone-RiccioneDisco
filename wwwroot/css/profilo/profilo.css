@@ -26,7 +26,7 @@
 
 
 
-h2 {
+h6, h2 {
     color:white;
 }
 
@@ -184,4 +184,25 @@ p {
         flex: 0 0 auto;
         width: 20%;
     }
+}
+
+.form-group {
+    color:white;
+    text-align: center;
+    line-height: 45px;
+}
+
+
+.btn.custom-btn {
+    display: block; /* Rende il bottone un blocco per permettere la centratura */
+  
+    margin: 20px auto; /* Aggiunge margine sopra e sotto e centra orizzontalmente */
+    
+}
+
+   
+
+.alert {
+    text-align: center; /* Centra il testo degli alert */
+    margin-top: 20px; /* Spazio extra sopra l'alert */
 }

@@ -1,0 +1,51 @@
+﻿.modulo {
+    position: relative;
+    top: 100px;
+}
+
+.list-unstyled {
+    line-height: 60px;
+}
+
+footer {
+    position: relative;
+    top: 150px;
+}
+
+@media (min-width: 1500px) {
+    .title-incluso {
+        position:relative;
+        bottom: 50px;
+    }
+
+    .list-unstyled {
+        position: relative;
+        left: 80px;
+        bottom: 30px;
+    }
+
+    #bookingForm {
+        position: relative;
+        left: 50px;
+        
+    }
+}
+
+
+
+.formPrenotazione .form-control {
+    width: 100%; /* Riduci la larghezza degli input al 80% del loro contenitore */
+    
+}
+
+/* Opzionale: aggiusta lo spazio tra i campi */
+.formPrenotazione .col-md-12 {
+    margin-bottom: 1rem; /* Aggiungi più spazio tra i campi se necessario */
+}
+
+
+@media (max-width: 767px) {
+    .modulo .text-center img {
+        margin-top: -80px; /* Riduci il margine superiore */
+    }
+}

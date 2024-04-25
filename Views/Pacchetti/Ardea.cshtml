@@ -1,37 +1,39 @@
-﻿@{
+﻿<link rel="stylesheet" href="~/css/moduli/moduli.css" asp-append-version="true" />
+
+
+
+@{
     ViewData["Title"] = "Pacchetti Riccione";
 }
 
 @model Moduli
 
-<div class="container mt-5">
+<div class="container mt-5 modulo">
     <div class="row d-flex align-items-center justify-content-center">
-        
-  
 
-
-
-
-
+        <!-- Immagine a sinistra -->
         <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 text-center">
+            <img src="/images/pacchetti/ardea.jpeg" alt="Alternate Text" style="width: 100%;" />
+        </div>
+
+        <!-- Cosa è incluso? al centro -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0">
             <div>
-                <h3>Cosa è incluso?</h3>
+                <h3 class="text-center title-incluso">Cosa è incluso</h3>
                 <ul class="list-unstyled">
                     <li class="fw-bold"><span class="number">7</span> Notti in Appartamento</li>
                     <li class="fw-bold"><span class="number">6</span> Ingressi In Discoteca</li>
                     <li class="fw-bold"><span class="number">1</span> Ingresso all'Aquafan di Riccione</li>
-                    <li class="fw-bold">Drink Incluso in tutte le serate</li>
-                    <li class="fw-bold">Navette Incluse A/R</li>
-                    <li class="fw-bold">Lettino e Beach Party tutti i giorni</li>
-                    <li class="fw-bold">Assistenza 24 ore su 24</li>
+                    <li class="fw-bold"><img width="30" height="30" src="https://img.icons8.com/ios-filled/50/cocktail.png" alt="cocktail" />Drink Incluso in tutte le serate</li>
+                    <li class="fw-bold"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/bus.png" alt="bus"/></i>Navette Incluse A/R</li>
+                    <li class="fw-bold"><img width="30" height="30" src="https://img.icons8.com/ios-filled/50/sun-lounger.png" alt="sun-lounger" />Lettino e Beach Party tutti i giorni</li>
+                    <li class="fw-bold"><img width="30" height="30" src="https://img.icons8.com/ios-filled/50/online-support.png" alt="online-support" />Assistenza 24 ore su 24</li>
                 </ul>
             </div>
-
-            <img src="/images/pacchetti/ardea.jpeg" alt="Alternate Text" style="width: 60%;" />
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 text-center formPrenotazione">
-           
+        <!-- Form a destra -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 formPrenotazione">
             <h4 class="text-center mb-4 mt-3">Modulo Prenotazione</h4>
             <!-- Inizio Form -->
             <form id="bookingForm" class="g-3" asp-controller="Pacchetti" asp-action="Ardea" method="post">
@@ -73,39 +75,15 @@
             <!-- Fine Form -->
         </div>
 
+    </div>
+</div>
 
 
 
 
 
-        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-md-0 mb-3">
-            <h6 class="text-center">Summer Vibes Riccione 2024!</h6>
 
-            <br>🌴Una settimana indimenticabile nel lussuoso appartamento dell'hotel Ardea, 
-            Le camere spaziose e climatizzate ti accolgono in un ambiente raffinato, dotato
-            di un pratico angolo cottura per la massima comodità.<br><br>
-
-            🏖️Rilassati al massimo e approfitta del tuo lettino in spiaggia per goderti il ​​calore del sole.
-            Le giornate sono allietate da coinvolgenti beach party pomeridiani che aggiungeranno
-            una ventata di divertimento alla tua vacanza..<br><br>
-
-            🎉Di notte, immersi nella vibrante vita notturna di Riccione con l'accesso esclusivo a
-            6 ingressi nelle discoteche più trendy della zona. Incluso salta fila, drink e comode
-            navette per garantire una serata senza pensieri..<br><br>
-
-            💦Per un'esperienza acquatica emozionante, ti offriamo l'accesso al rinomato parco
-            acquatico Aquafan, incluso nel pacchetto. E non dimenticare di mostrare il tuo
-            spirito avventuroso con una maglietta e gadget esclusivi.<br><br>
-
-            🕒Il nostro team di assistenza è disponibile 24 ore su 24 per garantire che la tua
-            vacanza sia perfetta in ogni dettaglio.<br><br>
-
-            🔞Età 16/25 anni.<br><br>
-
-            🎟️Tutto questo a partire da soli  <span class="price">499€</span> a persona. Prenota ora e
-            preparati a vivere un'esperienza unica e indimenticabile!
-            
-        </div>
+        
 
 
 

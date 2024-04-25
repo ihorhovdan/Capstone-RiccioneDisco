@@ -10,11 +10,18 @@
 
 @if (Model.Count == 0)
 {
-
     <div class="container mt-5 cart-container">
-        <p class="alert alert-info">Il tuo carrello è vuoto.</p>
+        <div class="alert custom-alert fade-in">
+            <h4 class="alert-heading">Attenzione!</h4>
+            <p>Il tuo carrello è vuoto. Esplora i nostri prodotti e trova qualcosa che ti piace!</p>
+            <hr>
+            <p class="mb-0">Quando trovi qualcosa di interessante, aggiungilo al carrello!</p>
+        </div>
     </div>
 }
+
+
+
 else
 {
     <div class="container mt-5">

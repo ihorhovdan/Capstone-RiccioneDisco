@@ -1,4 +1,8 @@
 ﻿<link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+<link href="~/css/home/home.css" rel="stylesheet">
 
 
 @{
@@ -81,111 +85,123 @@
 
 
 
-<section id="section_2">
+<<div class="container-title mt-4 mb-3">
+    <span>PERCHÉ </span>
+    <div class="flip-container">
+        <span id="flip-text" class="red-text">PARTIRE</span>
 
-    <h1 class="titolo mt-4">PERCHÈ SCEGLIERE NOI</h1>
-    <div class="container mt-4">
-        <div class="row">
+    </div>
+    <span> CON NOI</span>
+</div>
 
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-3 mb-4 text-center">
-                <div class="card1">
-                    <img src="https://hotelgransanbernardoriccione.com/wp-content/uploads/2020/12/Camera-sommier-pelle-gialla-scaled-1170x590.jpg" class="card-img-top1 img1" alt="Card Image">
-                    <div class="card-body mt-3">
-                        <h5 class="card-title1 text-center">7 NOTTI NEL MIGLIOR HOTEL DI RICCIONE</h5>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-3 mb-4 text-center">
-                <div class="card1">
-                    <img src="https://www.nightlife-cityguide.com/wp-content/uploads/2018/03/Vita-notturna-Riccione-672x372.jpg" class="card-img-top1 img1" alt="Card Image">
-                    <div class="card-body mt-3">
-                        <h5 class="card-title1">6 INGRESSI NELLE MIGLIORI DISCOTECHE</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-3 mb-4 text-center">
-                <div class="card1">
-                    <img src="https://www.notizienazionali.it/archivi/immagini/2017/B/BAK.jpeg" alt="Card Image" class="card-img-top1 img1" alt="Card Image">
-                    <div class="card-body mt-3">
-                        <h5 class="card-title1">BEACH PARTY E LETTINO IN SPIAGGIA</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-md-6 col-lg-3 mb-4 text-center">
-                <div class="card1">
-                    <img src="https://statics.cedscdn.it/photos/MED_HIGH/51/27/7435127_31154823_aquafan_piscina_onde.jpg" class="card-img-top1 img1" alt="Card Image">
-                    <div class="card-body mt-3">
-                        <h5 class="card-title1">INGRESSO AL PARCO ACQUATICO AQUAFAN</h5>
-                    </div>
-                </div>
-            </div>
-
+<section id="section_2" class="page-content">
+    
+    <div class="card">
+        <div class="content">
+            <h2 class="title">7 NOTTI IN ALBERGO</h2>
+            <p class="copy">Vivi con noi 7 notti magiche negli alberghi più vicino al mare e alla movida</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class="title">6 INGRESSI IN DISCOTECA</h2>
+            <p class="copy">Accedi alle discoteche più esclusive di Riccione</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class=" title title1">BEACH PARTY E LETTINO IN SPIAGGIA</h2>
+            <p class="copy">Accedi ai beach party con il lettino in spiaggia compreso</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class=" title title1">INGRESSO AL PARCO AQUAFAN</h2>
+            <p class="copy">Vivi un giorno magico nel grande parco acquatico aquafan di Riccione</p>
         </div>
     </div>
 </section>
+
 
 
 
 
 
 <section id="section_3" class="mb-3">
-    <h1 class="titolo mt-4">STRUTTURE CONVENZIONATE</h1>
+    <h1 class="titolo mt-5">I NOSTRI PACCHETTI</h1>
 
-    <div class="container">
-        <div class="row justify-content-between">
+    <div class="container1">
+        <div class="card__container">
+            <article class="card__article">
+                <img src="https://riccionedisco.it/images/pacchetti/ardea.jpeg" alt="image" class="card__img">
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mt-3 pacchetti">
-                <div class="card">
-                    <img class="card-img-top" src="/images/pacchetti/ardea.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Appartamenti Ardea</h5>
-                        <p class="card-text">Viale Monti 77 Riccione</p>
-                        <p class="card-text">2km dalla stazione</p>
-                        <p class="card-text">200m dalla spiaggia</p>
-                        <p class="card-text">Con Piscina</p>
-                        <a class="btn custom-btn  ms-auto me-4" asp-area="" asp-controller="Pacchetti" asp-action="Ardea">Preventivo Gratuito</a>
-                    </div>
+                <div class="card__data">
+                    <h2 class="card__title">PACCHETTO ARDEA</h2>
+                    <h3 class="price">DA 499€</h3>
+                    <span class="card__description">
+                        Viale Monti 77 Riccione<br>
+                        2km dalla stazione<br>
+                        200m dalla spiaggia
+                    </span>
+                    <a class="card__button" asp-controller="Pacchetti" asp-action="Ardea">Scopri di più</a>
                 </div>
-            </div>
+            </article>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mt-3 pacchetti">
-                <div class="card">
-                    <img class="card-img-top" src="/images/pacchetti/lasvegas.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Hotel Las Vegas</h5>
-                        <p class="card-text">Viale Trento Trieste 87 Riccione</p>
-                        <p class="card-text">1km dalla stazione</p>
-                        <p class="card-text">200m dalla spiaggia</p>
-                        <a class="btn custom-btn  ms-auto me-4 " asp-area="" asp-controller="Pacchetti" asp-action="LasVegas">Preventivo Gratuito</a>
-                    </div>
+            <article class="card__article">
+                <img src="https://riccionedisco.it/images/pacchetti/lasvegas.jpeg" alt="image" class="card__img">
+
+                <div class="card__data">
+                    <h2 class="card__title">PACCHETTO LAS VEGAS</h2>
+                    <h3 class="price">DA 599€</h3>
+                    <span class="card__description">
+                        Viale Trento Trieste 87 Riccione<br>
+                        1km dalla stazione<br>
+                        200m dalla spiaggia
+                    </span>
+                    <a class="card__button" asp-controller="Pacchetti" asp-action="LasVegas">Scopri di più</a>
                 </div>
-            </div>
+            </article>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mt-3 pacchetti">
-                <div class="card">
-                    <img class="card-img-top" src="/images/pacchetti/modenese.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Hotel Modenese</h5>
-                        <p class="card-text">Viale Trento Trieste 92 Riccione</p>
-                        <p class="card-text">900m dalla stazione</p>
-                        <p class="card-text">300m dalla spiaggia</p>
-                        <a class="btn custom-btn  ms-auto me-4" asp-area="" asp-controller="Pacchetti" asp-action="Modenese">Preventivo Gratuito</a>
-                    </div>
+            <article class="card__article">
+                <img src="https://riccionedisco.it/images/pacchetti/modenese.jpeg" alt="image" class="card__img">
+
+                <div class="card__data">
+                    <h2 class="card__title">PACCHETTO MODENESE</h2>
+                    <h3 class="price">DA 499€</h3>
+                    <span class="card__description">
+                        Viale Trento Trieste 92 Riccione<br>
+                        900m dalla stazione<br>
+                        300m dalla spiaggia
+                    </span>
+                    <a class="card__button" asp-controller="Pacchetti" asp-action="Modenese">Scopri di più</a>
                 </div>
-            </div>
-
+            </article>
         </div>
     </div>
 </section>
 
+<script>
+    AOS.init();
 
+
+    const words = ["PARTIRE", "DIVERTIRSI", "FESTEGGIARE"];
+    const colors = ["red-text", "blue-text", "green-text"];
+    let currentIndex = 0;
+
+    function updateText() {
+        currentIndex = (currentIndex + 1) % words.length; // Cicla attraverso gli indici degli array
+        const flipText = document.getElementById('flip-text');
+        flipText.style.animation = 'none';
+        flipText.offsetHeight; // Trigger reflow
+        flipText.style.animation = ''; // Reset animation
+        flipText.textContent = words[currentIndex];
+        flipText.className = ''; // Rimuovi tutte le classi precedenti
+        flipText.classList.add(colors[currentIndex]); // Aggiungi la nuova classe di colore
+    }
+
+    setInterval(updateText, 1500); // Cambia il testo e il colore ogni 2 secondi
+</script>
 
 
 

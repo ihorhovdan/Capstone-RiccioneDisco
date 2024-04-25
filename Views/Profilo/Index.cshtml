@@ -10,7 +10,7 @@
 
     <img src="/images/profilo.png" alt="Profilo" class="profile-image" />
     <h2>Ciao @Model.Utente.Nome!</h2>
-    <p id="option">Seleziona un opzione</p>
+    <h6 id="option">Seleziona un opzione</h6>
 
     <select id="profileOptions" class="form-control mt-3">
         <option value="">Seleziona un'opzione</option>
@@ -85,7 +85,19 @@
             // Gestisci la visibilità della sezione eventi acquistati
             $('#eventsSection').toggle(selectedOption === 'Visualizza Eventi Acquistati');
         });
+
+        // Funzione per far scomparire i messaggi di successo dopo 3 secondi
+        setTimeout(function () {
+            $('.alert-success').fadeOut('slow', function () {
+                $(this).remove(); // Rimuove l'elemento dal DOM dopo che è scomparso
+            });
+        }, 1500); // 3000 millisecondi equivalgono a 3 secondi
     });
+
+ 
+     
+
+
 </script>
 
 

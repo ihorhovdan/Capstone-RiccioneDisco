@@ -286,3 +286,36 @@ table {
     margin-right: 10px;
     display: block; /* Rendi visibile l'etichetta prima del contenuto */
 }
+
+
+.custom-alert {
+    background-color: #ffcc80; /* Arancione chiaro */
+    color: #333; /* Colore scuro per il testo per garantire leggibilità */
+    border: 1px solid #ffa726; /* Bordo di un arancione leggermente più scuro */
+    opacity: 0; /* Iniziamo con l'alert invisibile */
+    animation: fade-in 1.5s forwards; /* Animazione che cambia l'opacità */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+    .custom-alert hr {
+        border-top-color: #ff8c00; /* Linea di separazione in un arancione più scuro */
+    }
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Parte da leggermente più in basso */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-heading {
+    color: #e65100; /* Un arancione più scuro per il titolo */
+}
+
+
