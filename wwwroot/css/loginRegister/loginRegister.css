@@ -107,3 +107,15 @@ h6 {
 }
 
 
+.loghi-contenitore {
+    display: flex;
+    justify-content: center; /* Centra i contenuti orizzontalmente */
+    align-items: center; /* Centra i contenuti verticalmente */
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo */
+}
+
+.logo-img {
+    max-width: 150px; /* Riduci la larghezza massima delle immagini */
+    height: auto;
+    margin: 10px; /* Spazio tra le immagini */
+}

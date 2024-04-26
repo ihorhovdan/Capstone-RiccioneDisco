@@ -149,7 +149,7 @@ namespace RiccioneDisco.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Amministratore");
+            return RedirectToAction("Index", "Home");
         }
 
 

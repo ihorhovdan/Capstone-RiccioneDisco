@@ -319,3 +319,7 @@ table {
 }
 
 
+.btn-delete-large {
+    font-size: 20px; /* Imposta la dimensione del font a 20 pixel */
+    padding: 10px 20px; /* Imposta i padding superiori e inferiori a 10 pixel e i padding sinistro e destro a 20 pixel */
+}

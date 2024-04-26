@@ -64,7 +64,7 @@ else
                             <td data-title="Sub Tot:">€<span class="subtotal" data-item-id="@item.CarrelloItemId">@((item.Prezzo * item.Quantita).ToString("N2"))</span></td>
                             <td>
                                 <form method="post" action="@Url.Action("RimuoviDalCarrello", "Carrello", new { itemId = item.CarrelloItemId })" class="button-container">
-                                    <button type="submit" class="custom-btn btn-delete"><i class="bi-trash3-fill"></i></button>
+                                    <button type="submit" class="custom-btn btn-delete btn-delete-large"><i class="bi-trash3-fill"></i></button>
                                 </form>
                             </td>
 

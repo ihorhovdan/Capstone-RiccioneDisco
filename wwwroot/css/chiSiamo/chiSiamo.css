@@ -1,23 +1,74 @@
 ﻿section {
     font-family: 'Arial Rounded MT';
-    font-weight: 800;
+    font-weight: lighter;
 }
 
-.logo-and-video-container {
-    text-align: center; /* Continua ad allineare il contenuto a sinistra */
-    width: auto; /* Adatta la larghezza al contenuto interno */
-}
+
 
 .logo-size {
     display: block; /* Continua a garantire che il logo sia su una linea propria */
     max-width: 100%; /* Impedisce al logo di diventare più grande del suo contenitore */
     height: auto; /* Mantiene le proporzioni del logo */
     width: 200px; /* Imposta una larghezza fissa per il logo, modifica questo valore come desiderato */
+    
 }
 
 video {
     display: block; /* Rimuove gli spazi bianchi sotto il video */
-    max-width: 100%; /* Impedisce al video di superare la larghezza del contenitore */
+    max-width: 80%; /* Impedisce al video di superare la larghezza del contenitore */
     height: auto; /* Mantiene le proporzioni del video */
     margin-top: 20px; /* Aggiungi un margine sopra il video per distanziarlo dal logo */
 }
+
+.logo-and-video-container {
+    text-align: center; /* Allinea il contenuto al centro */
+
+}
+
+.logo-size {
+    display: block; /* Garantisce che il logo sia su una linea propria */
+    margin: 0 auto; /* Centra il logo */
+    max-width: 100%; /* Impedisce al logo di diventare più grande del suo contenitore */
+    height: auto; /* Mantiene le proporzioni del logo */
+    width: 200px; /* Imposta una larghezza fissa per il logo, modifica questo valore come desiderato */
+    margin-bottom: 30px;
+}
+
+.logo-and-video-container video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: auto;
+    height: 60vh;
+    border-radius: 20px; /* Arrotonda gli angoli del video */
+    overflow: hidden; /* Assicura che il video sia contenuto all'interno dei bordi arrotondati */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Aggiunge un'ombra per evidenziare i bordi ondulati */
+}
+
+
+
+.logo-and-video-container {
+    position: relative;
+    text-align: center;
+}
+
+.video-controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+    .video-controls button {
+        background-color: rgba(255, 255, 255, 0.5); /* Opacità per i tasti */
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+        .video-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.8); /* Opacità aumentata quando il mouse passa sopra */
+        }

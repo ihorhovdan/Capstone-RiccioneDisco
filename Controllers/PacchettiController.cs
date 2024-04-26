@@ -10,6 +10,12 @@ namespace RiccioneDisco.Controllers
 {
     public class PacchettiController : Controller
     {
+        private readonly EmailService _emailService;
+
+        public PacchettiController(EmailService emailService)
+        {
+            _emailService = emailService;
+        }
         public IActionResult Ardea()
         {
             return View();
@@ -19,13 +25,18 @@ namespace RiccioneDisco.Controllers
         [HttpPost]
         public IActionResult Ardea(Moduli moduli)
         {
-            var error = true;
+            if (!ModelState.IsValid)
+            {
+                return View(moduli);
+            }
+
+            var error = false;
             try
             {
                 DB.conn.Open();
                 var cmd = new SqlCommand(@"INSERT INTO Ardea
-                                           (Nome, Cognome, Email, NumPersone, DataArrivo, DataPartenza, Cellulare)
-                                           VALUES (@nome, @cognome, @email, @numPersone, @dataArrivo, @dataPartenza, @cellulare)", DB.conn);
+                                       (Nome, Cognome, Email, NumPersone, DataArrivo, DataPartenza, Cellulare)
+                                       VALUES (@nome, @cognome, @email, @numPersone, @dataArrivo, @dataPartenza, @cellulare)", DB.conn);
                 cmd.Parameters.AddWithValue("@nome", moduli.Nome);
                 cmd.Parameters.AddWithValue("@cognome", moduli.Cognome);
                 cmd.Parameters.AddWithValue("@email", moduli.Email);
@@ -39,11 +50,9 @@ namespace RiccioneDisco.Controllers
                 {
                     error = false;
                 }
-
             }
             catch (Exception ex)
             {
-
                 return View("Error", ex.Message);
             }
             finally
@@ -51,15 +60,27 @@ namespace RiccioneDisco.Controllers
                 DB.conn.Close();
             }
 
-
             if (!error)
             {
-                TempData["MessageSuccess"] = $"Preventivo inviato, sarai contattato a breve!";
+                string logoUrl = "https://riccionedisco.it/images/logo1.png";
+
+                string messageBody = $"<img src='{logoUrl}' alt='Logo' style='max-width: 200px;'><br><br><br>" +
+                                     $"Gentile, {moduli.Nome} {moduli.Cognome}, grazie per averci contattato per la tua prossima vacanza. Siamo lieti di fornirti un preventivo per il soggiorno desiderato.<br><br>" +
+                                     $"Di seguito troverai i dettagli relativi al tuo preventivo:<br>" +
+                                     $"Data di arrivo: {moduli.DataArrivo.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Data di partenza: {moduli.DataPartenza.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Numero di adulti: {moduli.NumPersone}<br><br>" +
+                                     $"Ti invitiamo a controllare attentamente le informazioni fornite. Se hai bisogno di ulteriori informazioni o desideri apportare delle modifiche al tuo preventivo, non esitare a contattarci. Siamo qui per assisterti al meglio e garantire che il tuo soggiorno presso l'Hotel Ardea sia indimenticabile.<br><br>" +
+                                     $"Ti ringraziamo ancora per aver scelto di prenotare con noi e non vediamo l'ora di darti il benvenuto.<br><br>" +
+                                     $"Cordiali saluti,<br>" +
+                                     $"Il team di Riccione Disco";
+
+                _emailService.SendEmail(moduli.Email, "Riccione Disco - Conferma Prenotazione", messageBody);
+                TempData["MessageSuccess"] = "Preventivo inviato, sarai contattato a breve!";
             }
             else
             {
-                TempData["MessageError"] = $"Errore durante l'invio del preventivo.";
-
+                TempData["MessageError"] = "Errore durante l'invio del preventivo.";
             }
 
             return RedirectToAction("Index", "Home");
@@ -188,5 +209,12 @@ namespace RiccioneDisco.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        
+            
+
+            
+        
+
     }
 }

@@ -10,7 +10,7 @@ section {
 }
 
 h2 {
-    margin-top: 100px;
+    margin-top: 150px;
     color: white;
     text-align: center;
     
@@ -261,11 +261,7 @@ input[type=number] {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.jersey-15-regular {
-    font-family: "Jersey 15", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
+
 
 
 

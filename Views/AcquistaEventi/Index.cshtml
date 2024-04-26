@@ -17,7 +17,7 @@
         </div>
 
 
-        <h2 class="jersey-15-regular">SCEGLI UNA DISCOTECA</h2>
+        <h2>SCEGLI UNA DISCOTECA</h2>
         <div class="d-flex justify-content-center align-items-center">
             <form method="get" class="form-inline">
                 <select class="form-select form-select-lg mb-3" name="discoteca" onchange="this.form.submit()">
@@ -127,13 +127,13 @@
                             $('#notification').css('opacity', '0');
                             $('#notification').animate({ opacity: 1 }, 500); // Appare lentamente
 
-                            $('#notification').css('animation', 'popUp 0.5s forwards, scaleDown 0.3s 2.5s forwards');
+                            $('#notification').css('animation', 'popUp 0.5s forwards, scaleDown 0.3s 1.5s forwards');
                             setTimeout(function () {
                                 $('#notification').fadeOut('slow', function () {
                                     $(this).css('display', 'none');
                                     $(this).css('animation', 'none');
                                 });
-                            }, 3000); // Dopo 3 secondi, scompare lentamente
+                            }, 1500); // Dopo 3 secondi, scompare lentamente
                         },
                         error: function () {
                             $('#notification').css('background-color', '#dc3545'); // Rosso per errore
