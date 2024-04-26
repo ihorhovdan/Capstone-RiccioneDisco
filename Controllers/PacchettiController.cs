@@ -69,7 +69,8 @@ namespace RiccioneDisco.Controllers
                                      $"Di seguito troverai i dettagli relativi al tuo preventivo:<br>" +
                                      $"Data di arrivo: {moduli.DataArrivo.Date.ToString("dd/MM/yyyy")}<br>" +
                                      $"Data di partenza: {moduli.DataPartenza.Date.ToString("dd/MM/yyyy")}<br>" +
-                                     $"Numero di adulti: {moduli.NumPersone}<br><br>" +
+                                     $"Numero di adulti: {moduli.NumPersone}<br>" +
+                                     $"<strong>Il Preventivo è di 519€ a persona</strong> <br><br>" +
                                      $"Ti invitiamo a controllare attentamente le informazioni fornite. Se hai bisogno di ulteriori informazioni o desideri apportare delle modifiche al tuo preventivo, non esitare a contattarci. Siamo qui per assisterti al meglio e garantire che il tuo soggiorno presso l'Hotel Ardea sia indimenticabile.<br><br>" +
                                      $"Ti ringraziamo ancora per aver scelto di prenotare con noi e non vediamo l'ora di darti il benvenuto.<br><br>" +
                                      $"Cordiali saluti,<br>" +
@@ -134,15 +135,28 @@ namespace RiccioneDisco.Controllers
                 DB.conn.Close();
             }
 
-
             if (!error)
             {
-                TempData["MessageSuccess"] = $"Preventivo inviato, sarai contattato a breve!";
+                string logoUrl = "https://riccionedisco.it/images/logo1.png";
+
+                string messageBody = $"<img src='{logoUrl}' alt='Logo' style='max-width: 200px;'><br><br><br>" +
+                                     $"Gentile, {moduli.Nome} {moduli.Cognome}, grazie per averci contattato per la tua prossima vacanza. Siamo lieti di fornirti un preventivo per il soggiorno desiderato.<br><br>" +
+                                     $"Di seguito troverai i dettagli relativi al tuo preventivo:<br>" +
+                                     $"Data di arrivo: {moduli.DataArrivo.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Data di partenza: {moduli.DataPartenza.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Numero di adulti: {moduli.NumPersone}<br>" +
+                                     $"<strong>Il Preventivo è di 619€ a persona</strong> <br><br>" +
+                                     $"Ti invitiamo a controllare attentamente le informazioni fornite. Se hai bisogno di ulteriori informazioni o desideri apportare delle modifiche al tuo preventivo, non esitare a contattarci. Siamo qui per assisterti al meglio e garantire che il tuo soggiorno presso l'Hotel Ardea sia indimenticabile.<br><br>" +
+                                     $"Ti ringraziamo ancora per aver scelto di prenotare con noi e non vediamo l'ora di darti il benvenuto.<br><br>" +
+                                     $"Cordiali saluti,<br>" +
+                                     $"Il team di Riccione Disco";
+
+                _emailService.SendEmail(moduli.Email, "Riccione Disco - Conferma Prenotazione", messageBody);
+                TempData["MessageSuccess"] = "Preventivo inviato, sarai contattato a breve!";
             }
             else
             {
-                TempData["MessageError"] = $"Errore durante l'invio del preventivo.";
-
+                TempData["MessageError"] = "Errore durante l'invio del preventivo.";
             }
 
             return RedirectToAction("Index", "Home");
@@ -196,25 +210,38 @@ namespace RiccioneDisco.Controllers
                 DB.conn.Close();
             }
 
-
             if (!error)
             {
-                TempData["MessageSuccess"] = $"Preventivo inviato, sarai contattato a breve!";
+                string logoUrl = "https://riccionedisco.it/images/logo1.png";
+
+                string messageBody = $"<img src='{logoUrl}' alt='Logo' style='max-width: 200px;'><br><br><br>" +
+                                     $"Gentile, {moduli.Nome} {moduli.Cognome}, grazie per averci contattato per la tua prossima vacanza. Siamo lieti di fornirti un preventivo per il soggiorno desiderato.<br><br>" +
+                                     $"Di seguito troverai i dettagli relativi al tuo preventivo:<br>" +
+                                     $"Data di arrivo: {moduli.DataArrivo.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Data di partenza: {moduli.DataPartenza.Date.ToString("dd/MM/yyyy")}<br>" +
+                                     $"Numero di adulti: {moduli.NumPersone}<br>" +
+                                     $"<strong>Il Preventivo è di 519€ a persona</strong> <br><br>" +
+                                     $"Ti invitiamo a controllare attentamente le informazioni fornite. Se hai bisogno di ulteriori informazioni o desideri apportare delle modifiche al tuo preventivo, non esitare a contattarci. Siamo qui per assisterti al meglio e garantire che il tuo soggiorno presso l'Hotel Ardea sia indimenticabile.<br><br>" +
+                                     $"Ti ringraziamo ancora per aver scelto di prenotare con noi e non vediamo l'ora di darti il benvenuto.<br><br>" +
+                                     $"Cordiali saluti,<br>" +
+                                     $"Il team di Riccione Disco";
+
+                _emailService.SendEmail(moduli.Email, "Riccione Disco - Conferma Prenotazione", messageBody);
+                TempData["MessageSuccess"] = "Preventivo inviato, sarai contattato a breve!";
             }
             else
             {
-                TempData["MessageError"] = $"Errore durante l'invio del preventivo.";
-
+                TempData["MessageError"] = "Errore durante l'invio del preventivo.";
             }
 
             return RedirectToAction("Index", "Home");
         }
 
-        
-            
 
-            
-        
+
+
+
+
 
     }
 }
