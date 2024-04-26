@@ -562,6 +562,7 @@ ul li {
     .dropdown-item:hover,
     .dropdown-item:focus {
         background-color: #333;
+        color:white;
     }
 
 

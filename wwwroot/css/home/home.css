@@ -447,8 +447,17 @@ img {
         grid-template-columns: repeat(3, 1fr); /* Tre card in fila */
         
     }
-    
 
+    .alert {
+        margin-bottom: -30px;
+        text-align:center;
+        
+    }
+
+}
+
+.alert {
+    font-weight: bold;
 }
 
 @media (max-width: 768px) { /* Adatta questa soglia a seconda delle tue esigenze */
@@ -456,3 +465,5 @@ img {
         gap: 3rem; /* Tre card in fila */
     }
 }
+
+

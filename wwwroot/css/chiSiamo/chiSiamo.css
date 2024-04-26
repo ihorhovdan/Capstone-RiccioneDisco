@@ -1,0 +1,23 @@
+﻿section {
+    font-family: 'Arial Rounded MT';
+    font-weight: 800;
+}
+
+.logo-and-video-container {
+    text-align: center; /* Continua ad allineare il contenuto a sinistra */
+    width: auto; /* Adatta la larghezza al contenuto interno */
+}
+
+.logo-size {
+    display: block; /* Continua a garantire che il logo sia su una linea propria */
+    max-width: 100%; /* Impedisce al logo di diventare più grande del suo contenitore */
+    height: auto; /* Mantiene le proporzioni del logo */
+    width: 200px; /* Imposta una larghezza fissa per il logo, modifica questo valore come desiderato */
+}
+
+video {
+    display: block; /* Rimuove gli spazi bianchi sotto il video */
+    max-width: 100%; /* Impedisce al video di superare la larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni del video */
+    margin-top: 20px; /* Aggiungi un margine sopra il video per distanziarlo dal logo */
+}

@@ -2,6 +2,11 @@
     background-color: #f7f7f7;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-image: url(/images/eventi/background1.jpg)
+
+}
+
+section {
+    font-family: 'Arial Rounded MT';
 }
 
 h2 {

@@ -5,6 +5,10 @@ body {
     font-family: Arial, sans-serif; /* Sets a clean, modern font for all text */
 }
 
+section {
+    font-family:'Arial Rounded MT';
+}
+
 /* Login Panel Style */
 .login-panel {
     background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
@@ -48,7 +52,7 @@ h2 {
 
 h6 {
     font-size: 1rem;
-    opacity: 0.8; /* Slightly transparent for less emphasis */
+    opacity: 0.9; /* Slightly transparent for less emphasis */
 }
 
 /* Button Containers for better alignment */
@@ -94,3 +98,12 @@ h6 {
     margin: 0 auto; /* Centra il bottone all'interno del suo contenitore */
     width: 150px; /* Imposta una larghezza fissa per il bottone */
 }
+
+
+.loghi-contenitore {
+    position: relative;
+    top: 40px;
+    margin-bottom: 50px;
+}
+
+

@@ -4,6 +4,10 @@ body {
     margin-top: 100px;
 }
 
+section {
+    font-family:'Arial Rounded MT';
+}
+
 .rounded-img {
     border-radius: 55px;
 }
