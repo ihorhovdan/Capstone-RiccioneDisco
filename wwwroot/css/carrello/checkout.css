@@ -167,6 +167,12 @@ footer {
 }
 
 
+@media (min-width: 768px) {
+   .checkout-form {
+       position: relative;
+       bottom: 60px;
+   } 
+}
 
 
 

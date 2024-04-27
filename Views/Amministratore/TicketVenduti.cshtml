@@ -1,0 +1,50 @@
+﻿<link rel="stylesheet" href="~/css/amministratore/amministratore.css" asp-append-version="true" />
+
+@model IEnumerable<RiccioneDisco.Models.EventoTicket>
+@{
+    ViewData["Title"] = "Ticket Venduti per Evento";
+}
+
+<h2 class="text-center ticket-title">@ViewData["Title"]</h2>
+
+@if (ViewData["Errore"] != null)
+{
+    <div class="alert alert-danger text-center">
+        @ViewData["Errore"]
+    </div>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="scrollable-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID Evento</th>
+                            <th>Titolo</th>
+                            <th>Data</th>
+                            <th>Luogo</th>
+                            <th>Ticket Venduti</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var evento in Model)
+                        {
+                            <tr>
+                                <td>@evento.IdEvento</td>
+                                <td>@evento.Titolo</td>
+                                <td>@evento.Data</td>
+                                <td>@evento.Luogo</td>
+                                <td>@evento.TotaleTicketVenduti</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-3 btn-back">
+                <a href="@Url.Action("Amministratore", "Amministratore")" class="btn btn-secondary">Torna Indietro</a>
+            </div>
+        </div>
+    </div>
+</div>

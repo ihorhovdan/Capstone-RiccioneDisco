@@ -35,3 +35,32 @@
     white-space: nowrap;
    
 }
+
+.add-event {
+    margin-top: 120px;
+    font-size: 30px
+}
+
+.buttons-add {
+    margin-bottom: 220px;
+}
+
+.buttons-manage {
+    margin-bottom: 320px;
+    margin-top: 30px;
+
+}
+
+.scrollable-table {
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+}
+
+.ticket-title {
+    margin-top: 100px;
+}
+
+.btn-back {
+    margin-bottom: 130px;
+}

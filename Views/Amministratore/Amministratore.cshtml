@@ -1,4 +1,6 @@
-﻿@model List<RiccioneDisco.Models.Moduli>
+﻿<link rel="stylesheet" href="~/css/amministratore/amministratore.css" asp-append-version="true" />
+
+@model List<RiccioneDisco.Models.Moduli>
 @{
     ViewData["Title"] = "Amministratore";
 }
@@ -28,7 +30,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4 mt-5">DASHBOARD RICHIESTE PREVENTIVI</h3>
+                    <h3 class="card-title text-center mb-4 mt-5"> PANNELLO AMMINISTRATORE</h3>
                     <form method="post" asp-action="Logout" asp-controller="Amministratore">
                         <button type="submit" class="btn btn-danger btn-block mx-auto d-block">Logout</button>
                     </form>
@@ -41,6 +43,7 @@
 <div class="container mt-3 text-center">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h6>DASHBOARD RICHIESTE PREVENTIVI</h6>
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-secondary" onclick="switchTable('table-ardea')">Hotel Ardea</button>
                 <button type="button" class="btn btn-secondary" onclick="switchTable('table-lasvegas')">Hotel Las Vegas</button>
@@ -183,10 +186,20 @@
         </div>
     </div>
 </div>
-<div class="container mt-3">
+<div>
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <a href="@Url.Action("AddEvent", "Amministratore")" class="btn btn-success">Aggiungi Nuovo Evento</a>
+            <h6>EVENTI VENDUTI</h6>
+            <a href="@Url.Action("TicketVenduti", "Amministratore")" class="btn btn-primary">Visualizza</a>
+        </div>
+
+    </div>
+</div>
+<div class="buttons-manage">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h6>SEZIONE EVENTI</h6>
+            <a href="@Url.Action("AddEvent", "Amministratore")" class="btn btn-success">Aggiungi Evento</a>
             <a href="@Url.Action("ManageEvents", "Amministratore")" class="btn btn-success">Gestisci Eventi</a>
         </div>
        

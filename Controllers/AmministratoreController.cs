@@ -333,17 +333,58 @@ namespace RiccioneDisco.Controllers
             return RedirectToAction("ManageEvents");
         }
 
+        [Authorize(Roles = "Administrator")]
+        public IActionResult TicketVenduti()
+        {
+            var eventiConTickets = new List<EventoTicket>();
 
+            try
+            {
+                using (var connection = new SqlConnection(DB.connectionString))
+                {
+                    connection.Open();
+                    var cmd = new SqlCommand(@"
+                        SELECT e.IdEvento, e.Titolo, e.Data, e.Luogo, SUM(do.Quantita) AS TotaleTicketVenduti
+                        FROM Eventi e
+                        JOIN DettaglioOrdine do ON e.IdEvento = do.EventoId
+                        GROUP BY e.IdEvento, e.Titolo, e.Data, e.Luogo", connection);
 
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var evento = new EventoTicket
+                            {
+                                IdEvento = reader.GetInt32(reader.GetOrdinal("IdEvento")),
+                                Titolo = reader.GetString(reader.GetOrdinal("Titolo")),
+                                Data = reader.GetString(reader.GetOrdinal("Data")),
+                                Luogo = reader.GetString(reader.GetOrdinal("Luogo")),
+                                TotaleTicketVenduti = reader.GetInt32(reader.GetOrdinal("TotaleTicketVenduti"))
+                            };
+                            eventiConTickets.Add(evento);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Gestisci l'errore, ad esempio loggando l'eccezione o mostrando un messaggio specifico.
+                ViewData["Errore"] = "Errore durante il recupero dei dati: " + ex.Message;
+                return View("Error");
+            }
 
-
-
-
+            return View(eventiConTickets);
+        }
     }
 
 
 
 
-
 }
+
+
+
+
+
+
 
